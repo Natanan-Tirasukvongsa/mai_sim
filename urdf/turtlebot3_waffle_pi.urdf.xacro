@@ -185,7 +185,7 @@
     </inertial>
   </link>
 
-  <joint name="camera_joint" type="fixed">
+  <!-- <joint name="camera_joint" type="fixed">
     <origin xyz="0.073 -0.011 0.084" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_link"/>
@@ -198,9 +198,9 @@
         <box size="0.015 0.030 0.027"/>
       </geometry>
     </collision>
-  </link>
+  </link> -->
 
-  <joint name="camera_rgb_joint" type="fixed">
+  <!-- <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="0.003 0.011 0.009" rpy="0 0 0"/>
     <parent link="camera_link"/>
     <child link="camera_rgb_frame"/>
@@ -212,6 +212,13 @@
     <parent link="camera_rgb_frame"/>
     <child link="camera_rgb_optical_frame"/>
   </joint>
-  <link name="camera_rgb_optical_frame"/>
+  <link name="camera_rgb_optical_frame"/> -->
+
+  <!-- d435i frame definition can be found at https://github.com/IntelRealSense/librealsense/blob/master/doc/d435i.md -->
+  <xacro:include filename="$(find mai_sim)/urdf/_d435i.urdf.xacro"/>
+  <xacro:sensor_d435i parent="base_link" name="D435i_camera" topics_ns="D435i_camera"> 
+    <origin xyz="0.0 0.5 0.1" rpy="0.0 0.0 0.0"/>
+  </xacro:sensor_d435i>
+
 
 </robot>
