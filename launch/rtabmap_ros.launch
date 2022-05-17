@@ -404,6 +404,7 @@
       <!--add more option-->
       <param name="RGBD/CreateOccupancyGrid" type="string" value="true"/>
       <param name="RGBD/StartAtOrigin" type="string" value="true"/>
+      <param name="Vis/MinInliers"            type="string" value="5"/>
     </node>
   
     <!-- Visualisation RTAB-Map -->
