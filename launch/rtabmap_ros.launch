@@ -13,6 +13,8 @@
         images + corresponding camera_info msgs. You can use stereo_image_proc for image rectification.
         Example:
            $ roslaunch rtabmap_ros bumblebee.launch -->
+
+  
      
   <!-- Choose between depth and stereo, set both to false to do only scan -->      
   <arg name="stereo"                    default="false"/>
@@ -108,7 +110,7 @@
    
   <arg name="visual_odometry"          default="true"/>          <!-- Launch rtabmap visual odometry node -->
   <arg name="icp_odometry"             default="false"/>         <!-- Launch rtabmap icp odometry node -->
-  <arg name="odom_topic"               default="odom"/>          <!-- Odometry topic name -->
+  <arg name="odom_topic"               default="/odom"/>          <!-- Odometry topic name -->
   <arg name="vo_frame_id"              default="$(arg odom_topic)"/> <!-- Visual/Icp odometry frame ID for TF -->
   <arg name="publish_tf_odom"          default="true"/>
   <arg name="odom_tf_angular_variance" default="0.001"/>         <!-- If TF is used to get odometry, this is the default angular variance -->
@@ -395,9 +397,13 @@
       <remap from="imu"                    to="$(arg imu_topic)"/>
       
       <!-- localization mode -->
-      <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+      <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
+
+      <!--add more option-->
+      <param name="RGBD/CreateOccupancyGrid" type="string" value="true"/>
+      <param name="RGBD/StartAtOrigin" type="string" value="true"/>
     </node>
   
     <!-- Visualisation RTAB-Map -->
