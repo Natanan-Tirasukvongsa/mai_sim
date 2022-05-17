@@ -3,7 +3,6 @@
 <!--
 License: Apache 2.0. See LICENSE file in root directory.
 Copyright(c) 2017 PAL Robotics, S.L. All Rights Reserved
-
 This is the Gazebo URDF model for the Intel RealSense D435 camera
 -->
   
@@ -31,8 +30,8 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
         <camera name="${camera_name}">
           <horizontal_fov>${69.4*deg_to_rad}</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
+            <width>1280</width>
+            <height>720</height>
             <format>RGB_INT8</format>
           </image>
           <clip>
@@ -97,8 +96,8 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
         <camera name="${camera_name}">
           <horizontal_fov>${85.2*deg_to_rad}</horizontal_fov>
           <image>
-            <width>1280</width>
-            <height>720</height>
+            <width>640</width>
+            <height>360</height>
           </image>
           <clip>
             <near>0.1</near>
@@ -145,3 +144,4 @@ This is the Gazebo URDF model for the Intel RealSense D435 camera
 
   </xacro:macro>
 </robot>
+

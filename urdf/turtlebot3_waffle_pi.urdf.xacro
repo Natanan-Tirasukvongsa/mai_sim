@@ -216,9 +216,7 @@
 
   <!-- d435i frame definition can be found at https://github.com/IntelRealSense/librealsense/blob/master/doc/d435i.md -->
   <xacro:include filename="$(find mai_sim)/urdf/_d435.urdf.xacro"/>
-  <xacro:sensor_d435 parent="base_link" name="D435_camera" topics_ns="D435_camera"> 
+  <xacro:sensor_d435 parent="base_link" name="camera" topics_ns="D435_camera" publish_pointcloud="true"> 
     <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
   </xacro:sensor_d435>
-
-
 </robot>
