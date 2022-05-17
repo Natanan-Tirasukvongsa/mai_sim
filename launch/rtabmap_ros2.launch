@@ -86,11 +86,11 @@
   <arg name="rgb_image_transport"     default="compressed"/>    <!-- Common types: compressed, theora (see "rosrun image_transport list_transports") -->
   <arg name="depth_image_transport"   default="compressedDepth"/>  <!-- Depth compatible types: compressedDepth (see "rosrun image_transport list_transports") -->
   
-  <arg name="gen_cloud"               default="true"/> <!-- only works with depth image and if not subscribing to scan_cloud topic-->
+  <arg name="gen_cloud"               default="false"/> <!-- only works with depth image and if not subscribing to scan_cloud topic-->
   <arg name="gen_cloud_decimation"    default="4"/>
   <arg name="gen_cloud_voxel"         default="0.05"/>
    
-  <arg name="subscribe_scan"          default="false"/>
+  <arg name="subscribe_scan"          default="true"/>
   <arg name="scan_topic"              default="/scan"/>
   <arg name="subscribe_scan_cloud"    default="$(arg gen_cloud)"/>
   <arg name="scan_cloud_topic"        default="/D435_camera/depth/color/points"/>
