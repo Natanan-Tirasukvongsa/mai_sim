@@ -4,12 +4,10 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
         - /RobotModel1/Links1
         - /TF1/Frames1
-        - /LaserScan2
-        - /Camera1
         - /DepthCloud1/Auto Size1
+        - /PointCloud21
       Splitter Ratio: 0.5
     Tree Height: 507
   - Class: rviz/Selection
