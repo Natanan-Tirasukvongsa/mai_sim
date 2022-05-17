@@ -398,13 +398,13 @@
       
       <!-- localization mode -->
       <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
-      <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
-      <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
+      <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+      <param name="Mem/InitWMWithAllNodes" type="string" value="true"/>
 
       <!--add more option-->
       <param name="RGBD/CreateOccupancyGrid" type="string" value="true"/>
       <param name="RGBD/StartAtOrigin" type="string" value="true"/>
-      <param name="Vis/MinInliers"            type="string" value="5"/>
+      <param name="Vis/MinInliers"            type="string" value="6"/>
     </node>
   
     <!-- Visualisation RTAB-Map -->
