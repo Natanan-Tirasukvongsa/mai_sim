@@ -44,8 +44,8 @@
   <arg name="ground_truth_base_frame_id" default=""/>  <!-- e.g., "tracker", a fake frame matching the frame "frame_id" (but on different TF tree) -->
   <arg name="namespace"               default="rtabmap"/>
   <arg name="database_path"           default="~/.ros/rtabmap.db"/>
-  <arg name="queue_size"              default="10"/>
-  <arg name="wait_for_transform"      default="0.2"/>
+  <arg name="queue_size"              default="5000"/> <!--default 10-->
+  <arg name="wait_for_transform"      default="10"/> <!--default 0.2-->
   <arg name="args"                    default=""/>              <!-- delete_db_on_start, udebug -->
   <arg name="rtabmap_args"            default="$(arg args)"/>   <!-- deprecated, use "args" argument -->
   <arg name="gdb"                     default="false"/>         <!-- Launch nodes in gdb for debugging (apt install xterm gdb) -->
@@ -401,6 +401,8 @@
       <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
+
+      <param name="Vis/MinInliers"               type="string" value="15"/>
     </node>
   
     <!-- Visualisation RTAB-Map -->
