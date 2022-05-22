@@ -108,7 +108,7 @@
    
   <arg name="visual_odometry"          default="true"/>          <!-- Launch rtabmap visual odometry node -->
   <arg name="icp_odometry"             default="false"/>         <!-- Launch rtabmap icp odometry node -->
-  <arg name="odom_topic"               default="odom"/>          <!-- Odometry topic name -->
+  <arg name="odom_topic"               default="/odom"/>          <!-- Odometry topic name -->
   <arg name="vo_frame_id"              default="$(arg odom_topic)"/> <!-- Visual/Icp odometry frame ID for TF -->
   <arg name="publish_tf_odom"          default="true"/>
   <arg name="odom_tf_angular_variance" default="0.001"/>         <!-- If TF is used to get odometry, this is the default angular variance -->
@@ -259,7 +259,7 @@
         </node>
 
         <!-- Stereo Odometry -->
-        <node if="$(arg stereo)" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" clear_params="$(arg clear_params)" output="$(arg output)" args="$(arg rtabmap_args) $(arg odom_args)" launch-prefix="$(arg launch_prefix)">
+        <!-- <node if="$(arg stereo)" pkg="rtabmap_ros" type="stereo_odometry" name="stereo_odometry" clear_params="$(arg clear_params)" output="$(arg output)" args="$(arg rtabmap_args) $(arg odom_args)" launch-prefix="$(arg launch_prefix)">
           <remap from="left/image_rect"        to="$(arg left_image_topic_relay)"/>
           <remap from="right/image_rect"       to="$(arg right_image_topic_relay)"/>
           <remap from="left/camera_info"       to="$(arg left_camera_info_topic)"/>
@@ -286,7 +286,7 @@
           <param name="expected_update_rate"        type="double" value="$(arg odom_expected_rate)"/>
           <param name="max_update_rate"             type="double" value="$(arg odom_max_rate)"/>
           <param name="keep_color"                  type="bool"   value="$(arg use_odom_features)"/>
-        </node>
+        </node> -->
       </group>
     </group>
     
