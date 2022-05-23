@@ -1,0 +1,178 @@
+<!-- <launch>
+
+    <arg name = "database_path"         default = "rtabmap.db"/>
+    <arg name = "localization"          default = "false"/>
+    <arg name = "args"                  default = ""/>
+
+    <arg name = "wait_for_transform"    default = "0.2"/> -->
+
+    <!--Navigation stuff (move base)-->
+    <!-- <include file = "$(find dd_sim)/launch/dd_move_base.launch"/> -->
+
+    <!-- mapping -->
+    <!-- <group ns="rtabmap">
+
+        <node name="rtabmap" pkg="rtabmap_ros"  type="rtabmap"  output="screen"     args="$(arg args)">
+            <param name="database_path"         type="string"   value="$(arg database_path)"/>
+            <param name="frame_id"              type="string"   value="base_footprint"/>
+            <param name="odom_frame_id"         type="string"   value="odom"/>
+            <param name="wait_for_transform_duration"           type="double"       value="$(arg wait_for_transform)"/>
+            <param name="subscribe_depth"       type="bool"     value="true"/>
+            <param name="subscribe_scan"        type="bool"     value="true"/> -->
+
+            <!--inputs-->
+            <!-- <remap from="scan"              to="/dd/laser/scan"/> -->
+            <!--change rgb to color-->
+            <!-- <remap from="rgb/image"         to="/dd/camera/rgb/image_raw"/> 
+            <remap from="depth/image"       to="/dd/camera/depth/image_raw"/>
+            <remap from="rgb/camera_info"   to="/dd/camera/rgb/camera_info"/> -->
+
+            <!--output-->
+            <!-- <remap from="grid_map" to="/map"/> -->
+
+            <!--rtab parameters-->
+            <!-- <param name="RGBD/ProximityBySpace"         type="string"    value="true"/>
+            <param name="RGBD/OptimizeFromGraphEnd"     type="string"    value="false"/>
+            <param name="Kp/MaxDepth"                   type="string"    value="4.0"/>
+            <param name="Reg/Strategy"                  type="string"    value="1"/>
+            <param name="Icp/CoprrespondenceRatio"      type="string"    value="0.3"/>
+            <param name="Vis/MinInliers"                type="string"    value="5"/>
+            <param name="Vis/InlierDistance"            type="string"    value="0.1"/>
+            <param name="RGBD/AngularUpdate"            type="string"    value="0.1"/>
+            <param name="RGBD/LinearUpdate"             type="string"    value="0.1"/>
+            <param name="Rtabmap/TimeThr"               type="string"    value="700"/>
+            <param name="Mem/RehearsalSimilarity"       type="string"    value="0.30"/>
+            <param name="Optimizer/Slam2D"              type="string"    value="true"/>
+            <param name="Reg/Force3DoF"                 type="string"    value="true"/> -->
+
+            <!-- <param if="$(ard localization)" name="Mem/IncrementalMemory"   type="string"   value="false"/>
+            <param if="$(ard localization)" name="Mem/InitWMWithAllNodes"  type="string"   value="false"/>
+
+        </node>
+
+    </group>
+</launch> -->
+
+<launch>
+
+  <arg name = "database_path"         default = "rtabmap.db"/>
+  <arg name = "args"                  default = ""/>
+  <arg name = "wait_for_transform"    default = "0.2"/> 
+  <include file = "$(find mai_sim)/launch/turtlebot3_navigation.launch"/>
+
+  <arg name = "localization"          default = "false"/>
+  <!--The time difference between rgb and depth frames is high (diff=0.016000s, rgb=18.908000s, depth=18.924000s). 
+  You may want to set approx_sync_max_interval lower than 0.01s to reject spurious bad synchronizations 
+  or use approx_sync=false if streams have all the exact same timestamp.-->
+  <!-- (sec) 0 means infinite interval duration (used with approx_sync=true) -->
+  <!-- <arg name="approx_sync_max_interval"  default="0"/>  -->
+
+  <!--rtabmap node provides services which can conflict with other services from other nodes-->
+  <group ns="rtabmap">
+
+    <!-- Use RGBD synchronization -->
+    <!-- Here is a general example using a standalone nodelet, 
+         but it is recommended to attach this nodelet to nodelet 
+         manager of the camera to avoid topic serialization -->
+    
+
+    <!--rgbd_sync nodelet to make sure that our image topics are correctly synchronized together before feeding them to rtabmap -->
+    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_ros/rgbd_sync" output="screen">
+      <remap from="rgb/image"       to="/D435_camera/color/image_raw"/>
+      <remap from="depth/image"     to="/D435_camera/depth/image_raw"/>
+      <remap from="rgb/camera_info" to="/D435_camera/color/camera_info"/>
+      <remap from="scan"              to="/scan"/>
+
+      <!-- output -->
+      <!-- <remap from="rgbd_image"      to="rgbd_image"/>  -->
+      <remap from="grid_map" to="/map"/>
+      
+      <!-- Should be true for not synchronized camera topics 
+           (e.g., false for kinectv2, zed, realsense, true for xtion, kinect360)-->
+      <!--approx_sync should be true when camera topics are not already synchronized by the camera node like here for freenect or openni2 drivers for Kinect For Xbox 360-->
+      <!--approx_sync should be false with camera drivers for Kinect v2, ZED or realsense as they publish rgb and depth topics already synchronized (same stamp)-->
+      <param name="approx_sync"    type="bool"   value="false"/> 
+    </node>
+
+    <!--delete_db_on_start argument will make rtabmap to delete the database (default located in ~/.ros/rtabmap.db) when starting. 
+    If you want the robot to continue mapping from a previous mapping session, you should remove delete_db_on_start-->
+    <!-- <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args=" - -delete_db_on_start"> -->
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg args)">
+          
+          <param name="database_path"  type="string"   value="$(arg database_path)"/>
+          <param name="odom_frame_id"         type="string"   value="odom"/>
+          <param name="wait_for_transform_duration"           type="double"       value="$(arg wait_for_transform)"/>
+
+          <!--The "frame_id" should be a fixed frame on the robot.-->
+          <param name="frame_id" type="string" value="base_link"/>
+
+          <!--By default, subscribe_depth is true-->
+          <!--However, in this setup, we will use RGB-D image input instead, so subscribe_depth is set to false and subscribe_rgbd is set to true.-->
+          <!--Since we have a 2D lidar, set subscribe_scan to true-->
+          <!--If we have a 3D lidar publishing sensor_msgs/PointCloud2 messages, set subscribe_scan_cloud to true instead and remap corresponding scan_cloud topic instead of scan-->
+          <param name="subscribe_depth" type="bool" value="false"/>
+
+          <!--rtabmap: Parameters subscribe_rgb and subscribe_rgbd cannot be true at the same time
+          Parameter subscribe_rgb is set to false-->
+          <param name="subscribe_rgbd" type="bool" value="true"/>
+          <param name="subscribe_rgb" type="bool" value="false"/>
+
+
+          <param name="subscribe_scan" type="bool" value="true"/>
+
+          <!--The rtabmap node synchronizes /base_controller/odom, /base_scan and /rtabmap/rgbd_image in a single callback.-->
+          <remap from="odom" to="/odom"/>
+
+          <!--Note that rgbd_image doesn't have leading slash, which means it subscribe to rgbd_image in its namespace, which would be /rtabmap/rgbd_image in this case-->
+          <remap from="rgbd_image" to="rgbd_image"/>
+
+          <!--Higher the value (Hz), more flexible can be the rate used for each topic-->
+          <param name="queue_size" type="int" value="5000"/>
+
+          <!--This section sets the RTAB-Map's parameters (the same as in Preferences dialog in the standalone version)-->
+          <!-- RTAB-Map's parameters -->
+          <!--Correct odometry using the input lidar topic using ICP-->
+          <param name="RGBD/NeighborLinkRefining" type="string" value="true"/>
+          <!--Find local loop closures based on the robot position in the map-->
+          <param name="RGBD/ProximityBySpace"     type="string" value="true"/>
+          
+          <!-- "subscribe_scan" is true and "Reg/Strategy" uses ICP 
+          Proximity detection by space will be also done by merging close scans. 
+          To disable, set "RGBD/ProximityPathMaxNeighbors" to 0. -->
+          <param name="RGBD/ProximityPathMaxNeighbors"     type="string" value="10"/>
+          
+          <!--The robot should move to update the map (if not 0)-->
+          <param name="RGBD/AngularUpdate"        type="string" value="0.1"/>
+          <!--The robot should move to update the map (if not 0)-->
+          <param name="RGBD/LinearUpdate"         type="string" value="0.1"/>
+          <!--By setting to false (which is the default), on loop closures the graph will be optimized from the first pose in the map
+          When set to false, the graph is optimized from the latest node added to the map instead of the first-->
+          <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+          <!--If true, the occupancy grid is created from the cloud generated by the depth camera. 
+          If false, the occupancy grid is created from the laser scans-->
+          <param name="Grid/Sensor"            type="string" value="false"/> <!-- occupancy grid from lidar -->
+          <!--Force 3DoF registration: roll, pitch and z won't be estimated-->
+          <param name="Reg/Force3DoF"             type="string" value="true"/>
+          <!--We chose ICP to refine global loop closures found with ICP using the laser scans-->
+          <param name="Reg/Strategy"              type="string" value="1"/> <!-- 1=ICP -->
+          
+          <!-- ICP parameters -->
+          <!--Scans are filtered down to voxel of 5 cm before doing ICP-->
+          <param name="Icp/VoxelSize"                 type="string" value="0.05"/>
+          <!--Maximum distance between points during registration by ICP-->
+          <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.1"/>
+
+          <param name="Kp/MaxDepth"                   type="string"    value="4.0"/>
+          <param name="Icp/CorrespondenceRatio"      type="string" value="0.3"/>
+          <param name="Vis/MinInliers"               type="string" value="5"/>
+          <param name="Vis/InlierDistance"            type="string"    value="0.1"/>
+          <param name="Rtabmap/TimeThr"               type="string"    value="700"/>
+          <param name="Mem/RehearsalSimilarity"       type="string"    value="0.30"/>
+          <!-- <param name="Optimizer/Slam2D"              type="string"    value="true"/> -->
+          <param if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+          <param if="$(arg localization)" name="Mem/InitWMWithAllNodes" type="string" value="true"/>
+
+    </node>
+  </group>
+  <!--Close the group-->
+</launch>
