@@ -44,7 +44,7 @@
   <arg name="ground_truth_base_frame_id" default=""/>  <!-- e.g., "tracker", a fake frame matching the frame "frame_id" (but on different TF tree) -->
   <arg name="namespace"               default="rtabmap"/>
   <arg name="database_path"           default="~/.ros/rtabmap.db"/>
-  <arg name="queue_size"              default="5000"/> <!--default 10-->
+  <arg name="queue_size"              default="1000000000"/> <!--default 10-->
   <arg name="wait_for_transform"      default="10"/> <!--default 0.2-->
   <arg name="args"                    default=""/>              <!-- delete_db_on_start, udebug -->
   <arg name="rtabmap_args"            default="$(arg args)"/>   <!-- deprecated, use "args" argument -->
@@ -410,6 +410,7 @@
       <param name="Odom/FilteringStrategy"         type="string"  value="1"/> <!--0 nofilter, 1 kalman filter, 2 particle filter-->
       <param name="Vis/BundleAdjustment"               type="int" value="0"/> <!--disable bundle adjustment-->
       <param name="Reg/Strategy"               type="int" value="0"/> <!--1 icp, 0 vis, 2 vis & icp-->
+      <param name="RGBD/OptimizeFomGraphEnd"  type="string" value="false"/> <!--ignore last pose-->
       
     </node>
   
