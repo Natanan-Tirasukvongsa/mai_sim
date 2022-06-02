@@ -185,7 +185,7 @@
         </node>
       </group>
     </group>
-    <group if="$(arg stereo)">
+    <!-- <group if="$(arg stereo)">
       <group unless="$(arg subscribe_rgbd)">
         <node if="$(arg compressed)" name="republish_left"  type="republish" pkg="image_transport" args="$(arg rgb_image_transport) in:=$(arg left_image_topic) raw out:=$(arg left_image_topic_relay)" />
         <node if="$(arg compressed)" name="republish_right" type="republish" pkg="image_transport" args="$(arg rgb_image_transport) in:=$(arg right_image_topic) raw out:=$(arg right_image_topic_relay)" />
@@ -204,7 +204,7 @@
           <param name="queue_size"      type="int"    value="$(arg queue_size)"/>
         </node>
       </group>
-    </group>
+    </group> -->
     
     <group unless="$(arg rgbd_sync)">
        <group if="$(arg subscribe_rgbd)">
