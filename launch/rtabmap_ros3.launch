@@ -17,13 +17,15 @@
   <arg name="rtabmapviz" default="false"/>
   <arg name="move_forward_only" default="false"/>
 
+
   <arg name="with_camera" default="true"/>
   <arg name="localization" default="false"/>
   <arg name="database_path" default="~/.ros/rtabmap.db"/>
   <arg     if="$(arg localization)" name="rtabmap_args" default=""/>
   <arg unless="$(arg localization)" name="rtabmap_args" default="-d"/>
 
-  <arg name="approx_sync_max_interval"  default="0.005"/> <!--(sec) 0 means infinite interval duration (used with approx_sync=true)-->
+  <arg name="approx_sync_max_interval"  default="0.001"/> <!--(sec) 0 means infinite interval duration (used with approx_sync=true)-->
+  
 
   <!-- Turtlebot3 -->
   <include file="$(find mai_sim)/launch/turtlebot3_remote.launch">
@@ -31,6 +33,7 @@
   </include>
 
   <arg name="wait_for_transform"  default="0.2"/>  <!--5 Hz-->
+
   <!-- move_base -->
   <include file="$(find mai_sim)/launch/move_base.launch">
     <arg name="model" value="$(arg model)" />
@@ -71,9 +74,15 @@
       <param name="Reg/Force3DoF"                type="string" value="true"/>
       <param name="GridGlobal/MinSize"           type="string" value="20"/>
 
+      <param name="Grid/Sensor" type="string" value="0"/>
+      <param name="RGBD/ProximityPathMaxNeighbors" type="string" value="10"/>
+      
+
+
       <!-- localization mode -->
       <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+      
     </node>
 
     <!-- visualization with rtabmapviz -->
@@ -81,7 +90,7 @@
       <param name="subscribe_scan"   type="bool"   value="true"/>
       <param name="subscribe_odom"   type="bool"   value="true"/>
       <param name="frame_id"         type="string" value="base_footprint"/>
-      <param name="approx_sync"      type="bool"   value="false"/>
+      <param name="approx_sync"      type="bool"   value="true"/>
 
       <remap from="odom"            to="/odom"/>
       <remap from="scan"            to="/scan"/>
