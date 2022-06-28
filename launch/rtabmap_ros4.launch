@@ -21,7 +21,7 @@
   <arg name="subscribe_rgb"  default="$(arg depth)"/>
  
   <!-- Choose visualization -->
-  <arg name="rtabmapviz"              default="false" /> 
+  <arg name="rtabmapviz"              default="true" /> 
   <arg name="rviz"                    default="true" />
   
   <!-- Localization-only mode -->
