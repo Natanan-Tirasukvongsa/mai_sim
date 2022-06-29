@@ -15,6 +15,10 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   tf
+  roscpp
+  cv_bridge
+  image_transport
+  genmsg
 )
 
 ## System dependencies are found with CMake's conventions
@@ -72,10 +76,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   geometry_msgs#   nav_msgs#   sensor_msgs#   std_msgs
-# )
+generate_messages(
+   DEPENDENCIES
+   geometry_msgs   nav_msgs   sensor_msgs   std_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -109,7 +113,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mai_sim
-#  CATKIN_DEPENDS gazebo_ros geometry_msgs nav_msgs rospy sensor_msgs std_msgs tf
+#  CATKIN_DEPENDS gazebo_ros geometry_msgs nav_msgs rospy sensor_msgs std_msgs tf roscpp
 #  DEPENDS system_lib
 )
 
@@ -208,3 +212,11 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(send_img src/send_img.cpp)
+target_link_libraries(send_img ${catkin_LIBRARIES})
+add_dependencies(send_img mai_sim_generate_messages_cpp)
+
+add_executable(recieve_img src/recieve_img.cpp)
+target_link_libraries(recieve_img ${catkin_LIBRARIES})
+add_dependencies(recieve_img mai_sim_generate_messages_cpp)

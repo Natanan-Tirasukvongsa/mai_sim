@@ -1,4 +1,4 @@
-#include <ros/ros.h>
+#include <ros/ros.h> //ros/ros.h is a convenience include that includes all the headers necessary to use the most common public pieces of the ROS system. 
 #include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
