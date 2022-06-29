@@ -3,6 +3,10 @@
 #include <opencv2/highgui/highgui.hpp> //These headers will allow us to display images using OpenCV's simple GUI capabilities. 
 #include <cv_bridge/cv_bridge.h> //These headers will allow us to display images using OpenCV's simple GUI capabilities. 
 
+//don't forget to run this : source devel/setup.bash
+//after that run : rosrun mai_sim recieve_img
+
+
 // This is the callback function that will get called when a new image has arrived on the "camera/image" topic. Although the image may have been sent in some arbitrary transport-specific message type, notice that the callback need only handle the normal sensor_msgs/Image type. All image encoding/decoding is handled automagically for you. 
 void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {

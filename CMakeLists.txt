@@ -19,6 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   genmsg
+  message_generation sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -78,7 +79,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
    DEPENDENCIES
-   geometry_msgs   nav_msgs   sensor_msgs   std_msgs
+   geometry_msgs   nav_msgs   sensor_msgs   std_msgs sensor_msgs
  )
 
 ################################################
@@ -113,9 +114,11 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mai_sim
-#  CATKIN_DEPENDS gazebo_ros geometry_msgs nav_msgs rospy sensor_msgs std_msgs tf roscpp
+  CATKIN_DEPENDS gazebo_ros geometry_msgs nav_msgs rospy sensor_msgs std_msgs tf roscpp cv_bridge image_transport message_runtime sensor_msgs
 #  DEPENDS system_lib
 )
+
+find_package(OpenCV)
 
 ###########
 ## Build ##
@@ -125,7 +128,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -214,9 +217,9 @@ include_directories(
 # catkin_add_nosetests(test)
 
 add_executable(send_img src/send_img.cpp)
-target_link_libraries(send_img ${catkin_LIBRARIES})
-add_dependencies(send_img mai_sim_generate_messages_cpp)
+target_link_libraries(send_img ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(send_img ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
 add_executable(recieve_img src/recieve_img.cpp)
-target_link_libraries(recieve_img ${catkin_LIBRARIES})
-add_dependencies(recieve_img mai_sim_generate_messages_cpp)
+target_link_libraries(recieve_img ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(recieve_img ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
