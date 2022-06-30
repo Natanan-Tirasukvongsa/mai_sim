@@ -3,6 +3,11 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
 
+//don't forget to run this : 
+//cd catkin_ws
+//source devel/setup.bash
+//after that run : rosrun mai_sim send_img /home/natanan/Pictures/test.png
+
 int main(int argc, char** argv)
 {
       /**
@@ -43,7 +48,7 @@ int main(int argc, char** argv)
       * than we can send them, the number here specifies how many messages to
       * buffer up before throwing some away.
       */
-  image_transport::Publisher pub = it.advertise("camera/image", 1);
+  image_transport::Publisher pub = it.advertise("/camera/image", 1);
 
   cv::Mat image = cv::imread(argv[1], cv::IMREAD_COLOR);
   sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg();

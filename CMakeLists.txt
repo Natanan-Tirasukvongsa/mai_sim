@@ -22,6 +22,10 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation sensor_msgs
 )
 
+# add the resized image message
+add_message_files(DIRECTORY msg
+   FILES resize_img.msg
+)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -223,3 +227,11 @@ add_dependencies(send_img ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_
 add_executable(recieve_img src/recieve_img.cpp)
 target_link_libraries(recieve_img ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 add_dependencies(recieve_img ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+add_executable(send_text src/send_text.cpp)
+target_link_libraries(send_text ${catkin_LIBRARIES})
+add_dependencies(send_text mai_sim_generate_messages_cpp)
+
+add_executable(recieve_text src/recieve_text.cpp)
+target_link_libraries(recieve_text ${catkin_LIBRARIES})
+add_dependencies(recieve_text mai_sim_generate_messages_cpp)
