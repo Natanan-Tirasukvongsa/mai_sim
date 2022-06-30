@@ -14,7 +14,8 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   try
   {
     cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
-    cv::waitKey(10);
+    // cv::waitKey(10); //cannot use waitKey
+    cv::startWindowThread();
   }
   catch (cv_bridge::Exception& e)
   {
