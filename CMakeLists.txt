@@ -235,3 +235,7 @@ add_dependencies(send_text mai_sim_generate_messages_cpp)
 add_executable(recieve_text src/recieve_text.cpp)
 target_link_libraries(recieve_text ${catkin_LIBRARIES})
 add_dependencies(recieve_text mai_sim_generate_messages_cpp)
+
+add_executable(video_stream src/video_stream.cpp)
+target_link_libraries(video_stream ${catkin_LIBRARIES}  ${OpenCV_LIBRARIES})
+add_dependencies(video_stream ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})

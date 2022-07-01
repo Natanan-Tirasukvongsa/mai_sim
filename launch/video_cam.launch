@@ -1,0 +1,3 @@
+<launch>
+    <node name="video_cam" pkg="mai_sim" type="video_cam.py" output="screen" respawn="true"/>
+</launch>
