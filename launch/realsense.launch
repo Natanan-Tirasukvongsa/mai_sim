@@ -1,0 +1,4 @@
+<launch>
+    <node name="realsense_talker" pkg="mai_sim" type="send_video_cam.py" output="screen" respawn="true"/>
+    <node name="realsense_recieve" pkg="mai_sim" type="recieve_video_cam.py" output="screen" respawn="true"/>
+</launch>
