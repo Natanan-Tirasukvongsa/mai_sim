@@ -10,10 +10,10 @@ import rospy
 def image_callback(img_msg):
     try:
         # webcam
-        # cv_image = CvBridge().imgmsg_to_cv2(img_msg, "passthrough")
+        cv_image = CvBridge().imgmsg_to_cv2(img_msg, "passthrough")
         
         # realsense
-        cv_image = CvBridge().imgmsg_to_cv2(img_msg, desired_encoding="bgr8")
+        # cv_image = CvBridge().imgmsg_to_cv2(img_msg, desired_encoding="bgr8")
 
         cv2.imshow('frame', cv_image)
         cv2.waitKey(3)
@@ -27,10 +27,10 @@ def reciever():
     rospy.init_node('realsense_reciever', anonymous=False)
     
     # webcam
-    # webcam_info = rospy.Subscriber('/webcam',Image ,image_callback)
+    webcam_info = rospy.Subscriber('/webcam',Image ,image_callback)
     
     # realsense 
-    realsense_info = rospy.Subscriber('/camera/color/image_raw',Image ,image_callback)
+    # realsense_info = rospy.Subscriber('/camera/color/image_raw',Image ,image_callback)
     
     
     while not rospy.is_shutdown():
