@@ -20,6 +20,8 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   genmsg
   message_generation sensor_msgs
+  turtlesim
+  joy
 )
 
 # add the resized image message
@@ -239,3 +241,6 @@ add_dependencies(recieve_text mai_sim_generate_messages_cpp)
 add_executable(video_stream src/video_stream.cpp)
 target_link_libraries(video_stream ${catkin_LIBRARIES}  ${OpenCV_LIBRARIES})
 add_dependencies(video_stream ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+add_executable(turtle_teleop_joy src/turtle_teleop_joy.cpp)
+target_link_libraries(turtle_teleop_joy ${catkin_LIBRARIES})
