@@ -7,9 +7,9 @@
         <param name="use_tf_static" value="$(arg use_tf_static)"/>
     </node>
 
-    <!-- <arg name="gui" default="True" />
+    <arg name="gui" default="True" />
     <param name="use_gui" value="$(arg gui)" />
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" />
 
     <!-- Cameras -->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
