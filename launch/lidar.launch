@@ -1,0 +1,28 @@
+<launch>
+    <!-- Setup the Configuration of ROBOT -->
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link"
+    args="0 0 0.5 0 0 0 1 base_footprint base_link 100" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_lidar"
+    args="0.3 0 0 0 0 0 1 base_link lidar 100" />
+
+    <!-- IMU Base -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_imu"
+    args="0.1 0 0 -1.570796327 0 0 base_link imu 100" />
+
+    <!-- Cliff -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_cliff"
+    args="0 0 -0.2 0 0 0 base_link cliff 100" />
+
+    <arg name="ip_address"                default=""/>  
+    <node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
+        <param name="ip_address" value="$(arg ip_address)"/>
+        <param name="serial_baud" value="115200"/>
+        <param name="frame_id" value="laser"/>
+        <param name="calibrate_time" value="true"/>
+        <param name="publish_intensity" value="false"/>
+        <param name="publish_multiecho" value="false"/>
+        <param name="angle_min" value="-2.356"/>
+        <param name="angle_max" value="2.356"/>
+    </node>
+</launch>
