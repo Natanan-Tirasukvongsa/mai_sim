@@ -241,7 +241,4 @@
     <origin xyz="0.07 0.0 1" rpy="0.0 0.0 0"/>
   </xacro:sensor_d435i>
 
-
-
-
 </robot>
