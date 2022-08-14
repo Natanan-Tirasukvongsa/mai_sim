@@ -2,15 +2,15 @@
 
 ## Installation
 
-RTAB-Map Install : https://github.com/introlab/rtabmap_ros
+- RTAB-Map Install : https://github.com/introlab/rtabmap_ros
 
-RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c
+- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c
 
-Realsense Install : https://github.com/IntelRealSense/realsense-ros
+- Realsense Install : https://github.com/IntelRealSense/realsense-ros
 
-IMU Filter Madwick : https://github.com/CCNYRoboticsLab/imu_tools
+- IMU Filter Madwick : https://github.com/CCNYRoboticsLab/imu_tools
  
-mai_sim Install : 
+- mai_sim Install : 
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
