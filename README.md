@@ -116,6 +116,10 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
 
+![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
+:--:| 
+| *Human Segmentation* |
+
 
 ## My Learning 📕
 Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
