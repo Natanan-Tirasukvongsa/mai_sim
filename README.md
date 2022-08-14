@@ -1,14 +1,16 @@
 # mai_sim
 
-## Installation
+## Installation ⚙️
 
 - RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
 
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c
 
-- Realsense Installation : https://github.com/IntelRealSense/realsense-ros
+- Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
 
 - IMU Filter Madwick Installation : https://github.com/CCNYRoboticsLab/imu_tools
+
+- Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
 
 - Kobuki Installation : https://github.com/yujinrobot/kobuki
 ~~~
@@ -26,7 +28,7 @@ cd ..
 catkin_make
 ~~~
 
-## Launch Files
+## Launch Files 📁
 ### RTAB-Map with 1 Realsense
 
 Launch RTAB-Map : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
@@ -61,6 +63,11 @@ imu_topic:=/rtabmap/imu
 # Press CTRL+C to save map, map will be saved in ~/.ros/rtabmap.db
 ~~~~
 
+![map](https://user-images.githubusercontent.com/78638430/184532129-a68e18e9-53cb-4499-a6cd-ac20ba12bbc6.png)
+|:--:| 
+| *Mapping with RTAB-Map* |
+
+
 Localization Mode : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
 ~~~
 #  resetting the odometry
@@ -69,22 +76,46 @@ rosservice call /rtabmap/reset_odom
 roslaunch rtabmap_ros rtabmap.launch localization:=true
 ~~~
 
+![localize](https://user-images.githubusercontent.com/78638430/184532139-8f7d73d5-ef50-4d4c-b8be-3da68bce1a21.png)
+|:--:| 
+| *Localization with RTAB-Map* |
+
 ### Kobuki 
 ~~~
 roslaunch mai_sim kobuki.launch
 ~~~
+
+![kobuki](https://user-images.githubusercontent.com/78638430/184531755-f6873998-30b4-415a-9be7-1c134c69d12a.png)
+|:--:| 
+| *Kobuki (Turtlebot2)* |
 
 ### Kobuki with Multi-Realsense
 ~~~
 roslaunch mai_sim kobuki_rs.launch
 ~~~
 
+![kobuki_rs](https://user-images.githubusercontent.com/78638430/184531813-eeaa8244-d36d-4c56-9354-51f273794b8c.png)
+|:--:| 
+| *Kobuki with Multi-Realsense* |
+
 ### Multi-Realsense
 ~~~
 roslaunch mai_sim test_rs.launch
 ~~~
 
+![rs](https://user-images.githubusercontent.com/78638430/184531874-32c3b962-d3ab-4b69-ad7c-23df0176c201.png)
+|:--:| 
+| *Multi-Realsense* |
+
+
 ### RTAB-Map with Multi-Realsense (***Not Complete***)
 ~~~
 roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start" 
 ~~~
+
+## Object Detection and Segmentation 🧠
+### Mask R-CNN (***Coming Soon***) 
+
+
+## My Learning 📕
+Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
