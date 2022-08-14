@@ -1,12 +1,12 @@
 # mai_sim
 
-##Installation
+## Installation
 
 RTAB-Map install : https://github.com/introlab/rtabmap_ros
 
 Realsense install : https://github.com/IntelRealSense/realsense-ros
  
-Install mai_sim
+mai_sim install : 
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
