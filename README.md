@@ -119,3 +119,6 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 
 ## My Learning 📕
 Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
+
+Quote : 
+> You cannot change the past but you can still fuck up your future.
