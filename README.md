@@ -9,8 +9,16 @@
 - Realsense Installation : https://github.com/IntelRealSense/realsense-ros
 
 - IMU Filter Madwick Installation : https://github.com/CCNYRoboticsLab/imu_tools
+
+- Kobuki Installation : https://github.com/yujinrobot/kobuki
+~~~
+cd catkin_ws/src
+git clone https://github.com/yujinrobot/kobuki
+cd ..
+catkin_make
+~~~
  
-- mai_sim Installation : 
+- mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
@@ -19,7 +27,7 @@ catkin_make
 ~~~
 
 ## Launch Files
-### RTAB-Map (with 1 Realsense)
+### RTAB-Map with 1 Realsense
 
 Launch RTAB-Map : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
 ~~~
@@ -59,4 +67,24 @@ Localization Mode : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
 rosservice call /rtabmap/reset_odom
 
 roslaunch rtabmap_ros rtabmap.launch localization:=true
+~~~
+
+### Kobuki 
+~~~
+roslaunch mai_sim kobuki.launch
+~~~
+
+### Kobuki with Multi-Realsense
+~~~
+roslaunch mai_sim kobuki_rs.launch
+~~~
+
+### Multi-Realsense
+~~~
+roslaunch mai_sim test_rs.launch
+~~~
+
+### RTAB-Map with Multi-Realsense (**Not Complete**)
+~~~
+roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start" 
 ~~~
