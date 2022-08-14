@@ -1,6 +1,7 @@
 # mai_sim
 
-##Install
+##Installation
+
 RTAB-Map install : https://github.com/introlab/rtabmap_ros
 
 Realsense install : https://github.com/IntelRealSense/realsense-ros
