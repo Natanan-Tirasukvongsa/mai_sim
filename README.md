@@ -84,7 +84,7 @@ roslaunch mai_sim kobuki_rs.launch
 roslaunch mai_sim test_rs.launch
 ~~~
 
-### RTAB-Map with Multi-Realsense (**Not Complete**)
+### RTAB-Map with Multi-Realsense (**__Not Complete__**)
 ~~~
 roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start" 
 ~~~
