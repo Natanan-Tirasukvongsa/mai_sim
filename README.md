@@ -133,6 +133,7 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 
 - RTAB-Map with Multi - Camera :
   - http://official-rtab-map-forum.206.s1.nabble.com/RTABMAP-to-be-integrated-for-two-ZED2i-cameras-td8976.html 
+  - https://www.heypasteit.com/clip/0ISEH9
 
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
