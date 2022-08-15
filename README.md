@@ -18,7 +18,7 @@ sudo make install
 # Install RTAB-Map ros-pkg
 cd ~/catkin_ws
 git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
-catkin_make -j4
+catkin_make -j4 -DRTABMAP_SYNC_MULTI_RGBD=ON -DRTABMAP_SYNC_USER_DATA=ON 
 ~~~
 ```diff
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
