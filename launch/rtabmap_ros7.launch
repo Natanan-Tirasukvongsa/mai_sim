@@ -1,0 +1,73 @@
+<launch>
+   
+  <!-- Multi-cameras demo with 2 realsense d435i cameras -->
+  
+  <!-- Choose visualization -->
+  <arg name="rviz"       default="true" />
+  <arg name="rtabmapviz" default="false" /> 
+  
+  <!-- Set to false to use just one of the cameras for odometry
+       Set to 0 to use both cameras for odometry. -->
+  <arg name="multicamera_odom" default="true"/>
+           
+  <group ns="rtabmap">
+  
+    <!-- approx sync cameras together -->
+    <node pkg="rtabmap_ros" type="rgbdx_sync" name="rgbdx_sync">
+      <remap from="rgbd_image0"  to="/camera1/rgbd_image"/>
+      <remap from="rgbd_image1"  to="/camera2/rgbd_image"/>
+      <param name="rgbd_cameras" type="int"  value="2"/>  
+      <param name="approx_sync"  type="bool" value="true"/>
+    </node>
+  
+    <!-- Odometry -->
+    <node pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
+      <remap from="rgbd_image"  to="/camera1/rgbd_image"/> <!-- for single camera odom, see below -->
+      <remap from="rgbd_images" to="rgbd_images"/>         <!-- for multi-camera odom, see below -->
+      <remap from="imu"         to="/camera1/imu"/>
+	  
+	  <param name="subscribe_rgbd" type="bool"   value="true"/>
+	  <param name="frame_id"       type="string" value="base_link"/>
+	  <param name="wait_imu_to_init" type="bool" value="true"/> <!-- set to false for "zed" camera model -->
+ 
+	  <param     if="$(arg multicamera_odom)" name="rgbd_cameras" type="int" value="0"/>
+	  <param unless="$(arg multicamera_odom)" name="rgbd_cameras" type="int" value="1"/>
+	  <!-- Multi-camera required odometry parameters -->
+	  <param if="$(arg multicamera_odom)" name="OdomF2M/BundleAdjustment" type="string" value="0"/>
+	  <param if="$(arg multicamera_odom)" name="Vis/EstimationType"       type="string" value="0"/> 
+	  <param if="$(arg multicamera_odom)" name="Vis/CorGuessWinSize"      type="string" value="0"/>
+    </node>
+  
+    <!-- Visual SLAM (robot side) -->
+    <!-- args: "delete_db_on_start" and "udebug" -->
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+      <param name="subscribe_depth"  type="bool"   value="false"/>
+      <param name="subscribe_rgbd"   type="bool"   value="true"/>
+      <param name="rgbd_cameras"     type="int"    value="0"/> <!-- 0 to use rgbd_images input -->
+	  <param name="frame_id"         type="string" value="base_link"/>
+	  <param name="approx_sync"      type="bool"   value="false"/>
+
+      <param name="Vis/EstimationType" type="string" value="0"/> <!-- should be 0 for multi-cameras -->
+      
+      <remap from="imu" to="/camera1/imu"/>
+    </node>
+  
+    <!-- Visualisation RTAB-Map -->
+    <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
+      <param name="subscribe_depth"     type="bool"   value="false"/>
+      <param name="subscribe_rgbd"      type="bool"   value="true"/>
+      <param name="subscribe_odom_info" type="bool"   value="true"/>
+      <param name="frame_id"            type="string" value="base_link"/>
+      <param     if="$(arg multicamera_odom)" name="rgbd_cameras" type="int" value="0"/>
+	  <param unless="$(arg multicamera_odom)" name="rgbd_cameras" type="int" value="1"/>
+      <param name="approx_sync"         type="bool"   value="false"/>
+      
+      <remap unless="$(arg multicamera_odom)" from="rgbd_image"  to="/camera1/rgbd_image"/>
+    </node>
+  
+  </group>
+  
+  <!-- Visualization RVIZ -->
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find rtabmap_ros)/launch/config/rgbd.rviz"/>
+
+</launch>
