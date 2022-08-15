@@ -3,14 +3,56 @@
 ## Installation ⚙️
 
 - RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
+~~~
+sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
+sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
+
+# Install RTAB-Map standalone libraries
+cd ~
+git clone https://github.com/introlab/rtabmap.git rtabmap
+cd rtabmap/build
+cmake .. [<---double dots included]
+make -j6
+sudo make install
+
+# Install RTAB-Map ros-pkg
+cd ~/catkin_ws
+git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
+catkin_make -j4
+~~~
 
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c
 
 - Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
+~~~
+sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
+sudo apt-get install ros-$ROS_DISTRO-realsense2-description
+cd ~/catkin_ws/src/
+git clone https://github.com/IntelRealSense/realsense-ros.git
+cd realsense-ros/
+git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+cd ..
+catkin_init_workspace
+cd ..
+catkin_make clean
+catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+catkin_make install
+~~~
 
 - IMU Filter Madwick Installation : https://github.com/CCNYRoboticsLab/imu_tools
+~~~
+sudo apt-get install ros-$ROS_DISTRO-imu-tools
+cd ~/catkin_ws/src/
+git clone -b $ROS_DISTRO https://github.com/CCNYRoboticsLab/imu_tools.git
+rosdep install imu_tools
+cd ~/catkin_ws
+catkin_make
+~~~
 
 - Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
+~~~
+cd ~/catkin_ws
+~~~
 
 - Kobuki Installation : https://github.com/yujinrobot/kobuki
 ~~~
