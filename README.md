@@ -20,8 +20,9 @@ cd ~/catkin_ws
 git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
 catkin_make -j4
 ~~~
-
-- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c
+```diff
+- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
+```
 
 - Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
 ~~~
@@ -51,8 +52,13 @@ catkin_make
 
 - Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
 ~~~
-cd ~/catkin_ws
+cd ~/catkin_ws/src
+pip3 install -r requirements.txt
+python3 setup.py install
 ~~~
+```diff
+- ROS Melodic needs to upgrade python3 (3.7.x or more) -
+```
 
 - Kobuki Installation : https://github.com/yujinrobot/kobuki
 ~~~
