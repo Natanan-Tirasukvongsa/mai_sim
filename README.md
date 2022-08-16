@@ -1,10 +1,10 @@
 # mai_sim
 
 ## Table of Contents
-* [Installation](#markdown-header-setup)
-* [Launch Files](#markdown-header-launch)
-* [Object Detection and Segmentation](#markdown-header-technologies)
-* [My Learning](#markdown-header-my-learning)
+* [Installation](#setup)
+* [Launch Files](#launch)
+* [Object Detection and Segmentation](#technologies)
+* [My Learning](#learning)
 
 ## Installation ⚙️
 
