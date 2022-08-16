@@ -16,11 +16,17 @@ make -j6
 sudo make install
 
 # Install RTAB-Map ros-pkg
+# If you install rtabmap-ros which is not support multi-camera, you need to remove it  
+sudo apt remove ros-$ROS_DISTRO-rtabmap-ros
+
+# After remove or install first time
+cd ~/catkin_ws/src
+git clone -b $ROS_DISTRO-devel https://github.com/introlab/rtabmap_ros.git
 cd ~/catkin_ws
-git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
-catkin_make -j4 -DRTABMAP_SYNC_MULTI_RGBD=ON -DRTABMAP_SYNC_USER_DATA=ON 
+catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON 
 ~~~
 ```diff
+- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
 ```
 
