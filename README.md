@@ -1,5 +1,11 @@
 # mai_sim
 
+## Table of Contents
+* [Installation](#setup)
+* [Launch Files](#launch)
+* [Object Detection and Segmentation](#technologies)
+* [My Learning](#my-learning)
+
 ## Installation ⚙️
 
 - RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
