@@ -3,32 +3,41 @@
 ## Installation ⚙️
 
 - RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
+1. Install RTAB-Map Binaries
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
-
-# Install RTAB-Map standalone libraries
+~~~
+2. Install RTAB-Map standalone libraries
+~~~
 cd ~
 git clone https://github.com/introlab/rtabmap.git rtabmap
 cd rtabmap/build
 cmake .. [<---double dots included]
 make -j6
 sudo make install
-
-# Install RTAB-Map ros-pkg
-# If you install rtabmap-ros which is not support multi-camera, you need to remove it  
-# Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
+~~~
+3. Install RTAB-Map ros-pkg
+```diff
+! If you install rtabmap-ros which is not support multi-camera, you need to remove it  
+! Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
+! If you do not use multi-camera, you can skip this process
+```
+~~~
 sudo apt remove ros-$ROS_DISTRO-rtabmap-ros
-
-# After remove or install first time
+~~~
+```diff
+@@ After remove rtabmap-ros or install first time @@
+```
+~~~
 cd ~/catkin_ws/src
 git clone -b $ROS_DISTRO-devel https://github.com/introlab/rtabmap_ros.git
 cd ~/catkin_ws
 catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON 
 ~~~
 ```diff
-- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459
-- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
+- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459 
+- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c 
 ```
 
 - Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
