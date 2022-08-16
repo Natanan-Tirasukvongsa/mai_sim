@@ -191,5 +191,8 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
   - https://www.heypasteit.com/clip/0ISEH9
   - https://github.com/introlab/rtabmap_ros/blob/master/launch/demo/demo_two_kinects.launch
 
+- RTAB-Map Error : 
+  - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
+
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
