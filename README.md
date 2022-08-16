@@ -168,6 +168,11 @@ roslaunch mai_sim test_rs.launch
 roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Optimizer/GravitySigma 0.3"
 ~~~
 
+![Screenshot from 2022-08-16 17-42-51](https://user-images.githubusercontent.com/78638430/184860954-a89cd103-c6ba-4256-aafd-1fd73dea6a64.png)
+|:--:| 
+| *RTAB-Map with Multi- Realsense* |
+
+
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
 
