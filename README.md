@@ -17,6 +17,7 @@ sudo make install
 
 # Install RTAB-Map ros-pkg
 # If you install rtabmap-ros which is not support multi-camera, you need to remove it  
+# Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
 sudo apt remove ros-$ROS_DISTRO-rtabmap-ros
 
 # After remove or install first time
