@@ -3,7 +3,7 @@
 ## Table of Contents
 * [Installation](#setup)
 * [Launch Files](#launch)
-* [Object Detection and Segmentation](#technologies)
+* [Object Detection and Segmentation](#technology)
 * [My Learning](#learning)
 
 <a name="setup"></a>
@@ -128,7 +128,7 @@ git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 cd ..
 catkin_make
 ~~~
-
+<a name="launch"></a>
 ## Launch Files 📁
 ### RTAB-Map with 1 Realsense
 
@@ -218,7 +218,7 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 |:--:| 
 | *RTAB-Map with Multi- Realsense* |
 
-
+<a name="technology"></a>
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
 
@@ -226,7 +226,7 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 :--:| 
 | *Human Segmentation* |
 
-
+<a name="learning"></a>
 ## My Learning 📕
 - Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
 
