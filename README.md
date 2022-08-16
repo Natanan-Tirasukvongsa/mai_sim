@@ -16,11 +16,18 @@ make -j6
 sudo make install
 
 # Install RTAB-Map ros-pkg
+# If you install rtabmap-ros which is not support multi-camera, you need to remove it  
+# Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
+sudo apt remove ros-$ROS_DISTRO-rtabmap-ros
+
+# After remove or install first time
+cd ~/catkin_ws/src
+git clone -b $ROS_DISTRO-devel https://github.com/introlab/rtabmap_ros.git
 cd ~/catkin_ws
-git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
-catkin_make -j4
+catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON 
 ~~~
 ```diff
+- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
 ```
 
@@ -182,6 +189,10 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 - RTAB-Map with Multi - Camera :
   - http://official-rtab-map-forum.206.s1.nabble.com/RTABMAP-to-be-integrated-for-two-ZED2i-cameras-td8976.html 
   - https://www.heypasteit.com/clip/0ISEH9
+  - https://github.com/introlab/rtabmap_ros/blob/master/launch/demo/demo_two_kinects.launch
+
+- RTAB-Map Error : 
+  - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
 
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
