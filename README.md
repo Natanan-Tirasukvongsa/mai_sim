@@ -76,12 +76,42 @@ python3 setup.py install
 - ROS Melodic needs to upgrade python3 (3.7.x or more) -
 ```
 
-- Kobuki Installation : https://github.com/yujinrobot/kobuki
+- Kobuki Installation : 
+  - https://www.youtube.com/watch?v=edNsh7bHkhQ
+```diff
+! Please follow the youtube tutorial
+```
+1. Create Kobuki Workspace 
 ~~~
-cd catkin_ws/src
-git clone https://github.com/yujinrobot/kobuki
-cd ..
+mkdir kobuki_ws
+cd kobuki_ws
+mkdir src
 catkin_make
+~~~
+2. Install Kobuki : https://github.com/yujinrobot/kobuki
+~~~
+cd src
+git clone https://github.com/yujinrobot/kobuki
+~~~
+3. Install Yujin Open Control System (yocs) : https://github.com/yujinrobot/yujin_ocs
+~~~
+git clone https://github.com/yujinrobot/yujin_ocs
+~~~
+4. For Noetic Version : https://github.com/yujinrobot/kobuki/issues/427#issuecomment-779439686
+```diff
+- Delete everything except 'yocs_cmd_vel_mux', 'yocs_controllers', and 'yocs_velocity_smoother' 
+```
+5. Install liborocos-kdl-dev
+~~~
+cd 
+sudo apt install liborocos-kdl-dev
+~~~
+6. Add more dependency
+~~~
+cd kobuki_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+source devel/setup.bash
 ~~~
  
 - mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
