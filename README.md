@@ -163,9 +163,9 @@ roslaunch mai_sim test_rs.launch
 | *Multi-Realsense* |
 
 
-### RTAB-Map with Multi-Realsense (***Not Complete***)
+### RTAB-Map with Multi-Realsense
 ~~~
-roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start" 
+roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Optimizer/GravitySigma 0.3"
 ~~~
 
 ## Object Detection and Segmentation 🧠
