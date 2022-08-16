@@ -215,8 +215,19 @@
   <link name="camera_rgb_optical_frame"/> -->
 
   <!-- d435i frame definition can be found at https://github.com/IntelRealSense/librealsense/blob/master/doc/d435i.md -->
-  <xacro:include filename="$(find mai_sim)/urdf/_d435.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find mai_sim)/urdf/_d435.urdf.xacro"/>
   <xacro:sensor_d435 parent="base_link" name="camera" topics_ns="D435_camera" publish_pointcloud="true"> 
     <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
-  </xacro:sensor_d435>
+  </xacro:sensor_d435> -->
+
+  <xacro:arg name="use_nominal_extrinsics" default="false" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/>
+
+  <xacro:sensor_d435i parent="base_link" name="camera1" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
+    <origin xyz="0 0.05 0.2" rpy="0.0 0.0 1.57079633"/>
+  </xacro:sensor_d435i>
+
+  <xacro:sensor_d435i parent="base_link" name="camera2" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
+    <origin xyz="0.0 -0.05 0.2" rpy="0.0 0.0 -1.57079633"/>
+  </xacro:sensor_d435i>
 </robot>

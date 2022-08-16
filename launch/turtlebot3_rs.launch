@@ -1,14 +1,9 @@
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mai_sim)/urdf/test_rs.urdf.xacro' use_nominal_extrinsics:=true" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mai_sim)/urdf/turtlebot3_waffle_pi.urdf.xacro' use_nominal_extrinsics:=true" />
     <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
-    <arg name="use_tf_static" default="true"/> 
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
-        <param name="use_tf_static" value="$(arg use_tf_static)"/>
-    </node>
-
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen"/>
-
 
     <!-- <arg name="gui" default="True" />
     <param name="use_gui" value="$(arg gui)" />
