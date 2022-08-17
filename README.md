@@ -245,5 +245,8 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 - RTAB-Map Error : 
   - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
 
+- RTAB-Map Calibration : 
+  - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
+
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
