@@ -1,34 +1,50 @@
 # mai_sim
 
+## Table of Contents
+* [Installation](#setup)
+* [Launch Files](#launch)
+* [Object Detection and Segmentation](#technology)
+* [My Learning](#learning)
+
+<a name="setup"></a>
 ## Installation ⚙️
 
 - RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
+1. Install RTAB-Map Binaries
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
-
-# Install RTAB-Map standalone libraries
+~~~
+2. Install RTAB-Map standalone libraries
+~~~
 cd ~
 git clone https://github.com/introlab/rtabmap.git rtabmap
 cd rtabmap/build
 cmake .. [<---double dots included]
 make -j6
 sudo make install
-
-# Install RTAB-Map ros-pkg
-# If you install rtabmap-ros which is not support multi-camera, you need to remove it  
-# Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
+~~~
+3. Install RTAB-Map ros-pkg
+```diff
+! If you install rtabmap-ros which is not support multi-camera, you need to remove it  
+! Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
+! If you do not use multi-camera, you can skip this process
+```
+~~~
 sudo apt remove ros-$ROS_DISTRO-rtabmap-ros
-
-# After remove or install first time
+~~~
+```diff
+@@ After remove rtabmap-ros or install first time @@
+```
+~~~
 cd ~/catkin_ws/src
 git clone -b $ROS_DISTRO-devel https://github.com/introlab/rtabmap_ros.git
 cd ~/catkin_ws
 catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON 
 ~~~
 ```diff
-- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459
-- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c -
+- RTAB-Map Multi-Camera Not Working : https://github.com/introlab/rtabmap_ros/issues/459 
+- RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c 
 ```
 
 - Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
@@ -67,12 +83,42 @@ python3 setup.py install
 - ROS Melodic needs to upgrade python3 (3.7.x or more) -
 ```
 
-- Kobuki Installation : https://github.com/yujinrobot/kobuki
+- Kobuki Installation : 
+  - https://www.youtube.com/watch?v=edNsh7bHkhQ
+```diff
+! Please follow the youtube tutorial
+```
+1. Create Kobuki Workspace 
 ~~~
-cd catkin_ws/src
-git clone https://github.com/yujinrobot/kobuki
-cd ..
+mkdir kobuki_ws
+cd kobuki_ws
+mkdir src
 catkin_make
+~~~
+2. Install Kobuki : https://github.com/yujinrobot/kobuki
+~~~
+cd src
+git clone https://github.com/yujinrobot/kobuki
+~~~
+3. Install Yujin Open Control System (yocs) : https://github.com/yujinrobot/yujin_ocs
+~~~
+git clone https://github.com/yujinrobot/yujin_ocs
+~~~
+4. For Noetic Version : https://github.com/yujinrobot/kobuki/issues/427#issuecomment-779439686
+```diff
+- Delete everything except 'yocs_cmd_vel_mux', 'yocs_controllers', and 'yocs_velocity_smoother' 
+```
+5. Install liborocos-kdl-dev
+~~~
+cd 
+sudo apt install liborocos-kdl-dev
+~~~
+6. Add more dependency
+~~~
+cd kobuki_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+source devel/setup.bash
 ~~~
  
 - mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
@@ -82,7 +128,7 @@ git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 cd ..
 catkin_make
 ~~~
-
+<a name="launch"></a>
 ## Launch Files 📁
 ### RTAB-Map with 1 Realsense
 
@@ -163,11 +209,16 @@ roslaunch mai_sim test_rs.launch
 | *Multi-Realsense* |
 
 
-### RTAB-Map with Multi-Realsense (***Not Complete***)
+### RTAB-Map with Multi-Realsense
 ~~~
-roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start" 
+roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Optimizer/GravitySigma 0.3"
 ~~~
 
+![Screenshot from 2022-08-16 17-42-51](https://user-images.githubusercontent.com/78638430/184860954-a89cd103-c6ba-4256-aafd-1fd73dea6a64.png)
+|:--:| 
+| *RTAB-Map with Multi- Realsense* |
+
+<a name="technology"></a>
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
 
@@ -175,7 +226,7 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 :--:| 
 | *Human Segmentation* |
 
-
+<a name="learning"></a>
 ## My Learning 📕
 - Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
 
@@ -193,6 +244,9 @@ roslaunch mai_sim rtabmap_ros6.launch rtabmap_args:="--delete_db_on_start"
 
 - RTAB-Map Error : 
   - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
+
+- RTAB-Map Calibration : 
+  - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
 
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
