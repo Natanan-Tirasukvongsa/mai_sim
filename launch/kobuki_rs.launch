@@ -37,26 +37,26 @@
     args="-0.07 0.0 1 0.0 0.0 3.1415926535897931 base_link camera2_link 100" /> -->
 
     <!--right-->
-    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" value="camera3" />
         <arg name="serial_no" value="048122071755" />
         <arg name="align_depth" value="true" />
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
-    </include>
+    </include> -->
     <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera3_link"
     args="0.0 0.07 1 0.0 0.0 1.57079632679 base_link camera3_link 100" /> -->
 
     <!--back-->
-    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" value="camera4" />
         <arg name="serial_no" value="048322071579" />
         <arg name="align_depth" value="true" />
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
-    </include>
+    </include> -->
     <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera4_link"
     args="0.07 0.0 1 0.0 0.0 0 base_link camera4_link 100" /> -->
 
@@ -79,7 +79,7 @@
       <param name="approx"          value="false"/>
     </node>
    </group>
-   <group ns="camera3">
+   <!-- <group ns="camera3">
     <node pkg="nodelet" type="nodelet" name="nodelet_manager3" args="manager"/>
     <node pkg="nodelet" type="nodelet" name="rgbd_sync3" args="load rtabmap_ros/rgbd_sync nodelet_manager3">
       <remap from="rgb/image"       to="color/image_raw"/>
@@ -87,8 +87,8 @@
       <remap from="rgb/camera_info" to="color/camera_info"/>
       <param name="approx"          value="false"/>
     </node>
-   </group>
-   <group ns="camera4">
+   </group> -->
+   <!-- <group ns="camera4">
     <node pkg="nodelet" type="nodelet" name="nodelet_manager4" args="manager"/>
     <node pkg="nodelet" type="nodelet" name="rgbd_sync4" args="load rtabmap_ros/rgbd_sync nodelet_manager4">
       <remap from="rgb/image"       to="color/image_raw"/>
@@ -96,5 +96,5 @@
       <remap from="rgb/camera_info" to="color/camera_info"/>
       <param name="approx"          value="false"/>
     </node>
-   </group>
+   </group> -->
 </launch>
