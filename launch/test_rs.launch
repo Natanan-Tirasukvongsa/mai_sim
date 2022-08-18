@@ -17,7 +17,7 @@
     <!-- Cameras -->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" value="camera1" />
-        <arg name="serial_no" value="048122072409" />
+        <arg name="serial_no" value="047422070014" />
         <arg name="align_depth" value="true" />
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
