@@ -218,6 +218,18 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 |:--:| 
 | *RTAB-Map with Multi- Realsense* |
 
+### Turtlesim Trajectory Control Using Joystick
+~~~
+roscore
+rosrun joy joy_node
+rosrun turtlesim turtlesim_node 
+rosrun mai_sim joy_trajectory3
+~~~
+
+![Screenshot from 2022-08-19 20-55-32](https://user-images.githubusercontent.com/78638430/185634686-37945c1b-ebfe-42e6-8c9b-2012c0aae415.png)
+|:--:| 
+| *Turtlesim Velocity Control* |
+
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
