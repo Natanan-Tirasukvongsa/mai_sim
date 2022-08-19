@@ -248,5 +248,17 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 - RTAB-Map Calibration : 
   - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
 
+- Control using Joystick : 
+  - http://wiki.ros.org/joy/Tutorials
+
+- Control Turtlesim : 
+  - https://automaticaddison.com/how-to-move-the-turtlesim-robot-to-goal-locations-ros/
+  - https://linklab-uva.github.io/autonomousracing/assets/files/ros-turtlesim.pdf
+  - https://subscription.packtpub.com/book/hardware-and-creative/9781782175193/1/ch01lvl1sec14/turtlesim-the-first-ros-robot-simulation
+
+- C++ :
+  - https://www.geeksforgeeks.org/c-classes-and-objects/
+  - https://www.youtube.com/watch?v=vLnPwxZdW4Y
+
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
