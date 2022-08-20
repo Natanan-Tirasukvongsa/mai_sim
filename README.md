@@ -218,6 +218,18 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 |:--:| 
 | *RTAB-Map with Multi- Realsense* |
 
+### Turtlesim Trajectory Control Using Joystick
+~~~
+roscore
+rosrun joy joy_node
+rosrun turtlesim turtlesim_node 
+rosrun mai_sim joy_trajectory3
+~~~
+
+![Screenshot from 2022-08-19 20-55-32](https://user-images.githubusercontent.com/78638430/185634686-37945c1b-ebfe-42e6-8c9b-2012c0aae415.png)
+|:--:| 
+| *Turtlesim Velocity Control* |
+
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
 ### Mask R-CNN (***Coming Soon***) 
@@ -247,6 +259,18 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 
 - RTAB-Map Calibration : 
   - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
+
+- Control using Joystick : 
+  - http://wiki.ros.org/joy/Tutorials
+
+- Control Turtlesim : 
+  - https://automaticaddison.com/how-to-move-the-turtlesim-robot-to-goal-locations-ros/
+  - https://linklab-uva.github.io/autonomousracing/assets/files/ros-turtlesim.pdf
+  - https://subscription.packtpub.com/book/hardware-and-creative/9781782175193/1/ch01lvl1sec14/turtlesim-the-first-ros-robot-simulation
+
+- C++ :
+  - https://www.geeksforgeeks.org/c-classes-and-objects/
+  - https://www.youtube.com/watch?v=vLnPwxZdW4Y
 
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
