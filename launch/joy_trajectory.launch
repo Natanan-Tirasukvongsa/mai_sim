@@ -16,3 +16,10 @@
   <param name="scale_angular" value="2" type="double"/> -->
   <node pkg="mai_sim" type="joy_trajectory3" name="teleop"/>
 </launch>
+
+<!-->
+$ roscore
+$ rosparam set joy_node/dev "/dev/input/jsX"
+$ rosrun joy joy_node
+$ roslaunch mai_sim joy_trajectory.launch
+<-->

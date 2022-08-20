@@ -36,7 +36,8 @@ float timer = 0.0; //time chaning @trajectory
 float beginTime; //start trajectory
 float durationTime; //time offset
 float endTime; //stop trajectory
-float tau; //stop trajectory
+float tau; // trajectory time
+float tau_max; // maximum time
 
 float c_0_angular = 0; //first coeficient for augular velocity 
 float c_1_angular = 0; //second coeficient for augular velocity 
@@ -52,9 +53,16 @@ float c_3_linear = 0; //fourth coeficient for linear velocity
 float c_4_linear = 0; //fifth coeficient for linear velocity 
 float c_5_linear = 0; //sixth coeficient for linear velocity 
 
-float tau_set = 5.0; // trajectory in second
-float angular_max = 0.5; // trajectory in second
-float linear_max = 0.7; // trajectory in second
+float tau_max_angular = 0.0; // trajectory in second
+float tau_max_linear = 0.0; // trajectory in second
+
+float velo_max_angular = 0.5; // trajectory in second (max @ pi rad/s)
+float velo_max_linear = 0.7; // trajectory in second (max @ 0.7 m/s)
+
+float acc_max_angular = 0.25; // maximum angular acceleration
+float jerk_max_angular = 0.1; //maimum angular jerk 
+float acc_max_linear = 0.4; // maximum linear acceleration
+float jerk_max_linear = 0.2; //maimum linear jerk 
 
  
 // Initialized variables and take care of other setup tasks
@@ -126,8 +134,8 @@ void callbackVel(const geometry_msgs::Twist &currentVel)
 
 void callbackJoy(const sensor_msgs::JoyConstPtr &joy) {
     //recieve value from joystick
-    velStop.angular.z = angular_max*joy->axes[0];
-    velStop.linear.x = linear_max*joy->axes[1]; 
+    velStop.angular.z = velo_max_angular*joy->axes[0];
+    velStop.linear.x = velo_max_linear*joy->axes[1]; 
     start = 1;
 }
 
@@ -136,18 +144,23 @@ void trajectory()
     if (start)
     {
         start = 0;
+
+        tau_max_angular = 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular)) ? 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular));
+        tau_max_linear = 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear)) ? 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear));
+        tau_max = tau_max_angular >= tau_max_linear ? tau_max_angular : tau_max_linear;
+
         c_0_angular =  velStart.angular.z;
-        c_3_angular = 10*(velStop.angular.z-velStart.angular.z)/powf(tau_set,3);
-        c_4_angular = 15*(velStart.angular.z- velStop.angular.z)/powf(tau_set,4);
-        c_5_angular = 6*( velStop.angular.z-velStart.angular.z)/powf(tau_set,5);
+        c_3_angular = 10*(velStop.angular.z-velStart.angular.z)/powf(tau_max,3);
+        c_4_angular = 15*(velStart.angular.z- velStop.angular.z)/powf(tau_max,4);
+        c_5_angular = 6*( velStop.angular.z-velStart.angular.z)/powf(tau_max,5);
 
         c_0_linear = velStart.linear.x;
-        c_3_linear = 10*(velStop.linear.x-velStart.linear.x)/powf(tau_set,3);
-        c_4_linear = 15*(velStart.linear.x-velStop.linear.x)/powf(tau_set,4);
-        c_5_linear = 6*(velStop.linear.x-velStart.linear.x)/powf(tau_set,5);
+        c_3_linear = 10*(velStop.linear.x-velStart.linear.x)/powf(tau_max,3);
+        c_4_linear = 15*(velStart.linear.x-velStop.linear.x)/powf(tau_max,4);
+        c_5_linear = 6*(velStop.linear.x-velStart.linear.x)/powf(tau_max,5);
 
         beginTime = timer;
-        durationTime = 5;
+        durationTime = tau_max;
         endTime = beginTime + durationTime;
     }
     else
