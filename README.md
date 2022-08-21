@@ -73,7 +73,37 @@ cd ~/catkin_ws
 catkin_make
 ~~~
 
-- Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
+- Mask R-CNN Installation
+1. Requirement Version 
+```diff 
+- python>=3.7,<3.10
+- numpy<1.25.0,>=1.20
+- pillow>=8.3.2
+```
+2. Upgrade Python Version : https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/
+~~~
+# check python version
+python3 --version
+
+# if python version <3.7
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+# choose desire python version
+sudo apt install python3.9
+~~~
+3. Upgrade Numpy Version : https://github.com/tensorflow/models/issues/9200
+~~~
+pip3 uninstall numpy
+pip3 install numpy==1.20
+~~~
+4. Upgrade Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
+~~~
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
+~~~
+5. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
 ~~~
 cd catkin_ws/src
 git clone git clone https://github.com/matterport/Mask_RCNN.git
@@ -81,14 +111,8 @@ cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
-```diff Require Version !!
-- python>=3.7,<3.10
-- numpy<1.25.0,>=1.20.0
-- pillow>=8.3.2
-```
 
-- Kobuki Installation : 
-  - https://www.youtube.com/watch?v=edNsh7bHkhQ
+- Kobuki Installation : https://www.youtube.com/watch?v=edNsh7bHkhQ
 ```diff
 ! Please follow the youtube tutorial
 ```
