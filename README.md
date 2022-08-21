@@ -75,12 +75,16 @@ catkin_make
 
 - Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
 ~~~
-cd ~/catkin_ws/src
+cd catkin_ws/src
+git clone git clone https://github.com/matterport/Mask_RCNN.git
+cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
 ```diff
-- ROS Melodic needs to upgrade python3 (3.7.x or more) -
+- python>=3.7,<3.10
+- numpy<1.25.0,>=1.20.0
+- pillow>=8.3.2
 ```
 
 - Kobuki Installation : 
@@ -232,7 +236,7 @@ rosrun mai_sim joy_trajectory3
 
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
-### Mask R-CNN (***Coming Soon***) 
+### Mask R-CNN
 
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
 :--:| 
