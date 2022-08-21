@@ -152,7 +152,8 @@ catkin_make
 source devel/setup.bash
 ~~~
  
-### mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
+### mai_sim Installation 
+1. Install mai_sim : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
