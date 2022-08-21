@@ -81,11 +81,10 @@ cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
-```diff
-- Require Version !!
-  - python>=3.7,<3.10
-  - numpy<1.25.0,>=1.20.0
-  - pillow>=8.3.2
+```diff Require Version !!
+- python>=3.7,<3.10
+- numpy<1.25.0,>=1.20.0
+- pillow>=8.3.2
 ```
 
 - Kobuki Installation : 
