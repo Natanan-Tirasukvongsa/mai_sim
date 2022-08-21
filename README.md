@@ -8,14 +8,13 @@
 
 <a name="setup"></a>
 ## Installation ⚙️
-
-- RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
-1. Install RTAB-Map Binaries
+### RTAB-Map Installation 
+1. Install RTAB-Map Binaries : https://github.com/introlab/rtabmap_ros
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
 ~~~
-2. Install RTAB-Map standalone libraries
+2. Install RTAB-Map standalone libraries : https://github.com/introlab/rtabmap_ros
 ~~~
 cd ~
 git clone https://github.com/introlab/rtabmap.git rtabmap
@@ -24,7 +23,7 @@ cmake .. [<---double dots included]
 make -j6
 sudo make install
 ~~~
-3. Install RTAB-Map ros-pkg
+3. Install RTAB-Map ros-pkg : https://github.com/introlab/rtabmap_ros
 ```diff
 ! If you install rtabmap-ros which is not support multi-camera, you need to remove it  
 ! Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
@@ -47,7 +46,8 @@ catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c 
 ```
 
-- Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
+### Realsense (D435i) Installation 
+1. Install Realsense (D435i) : https://github.com/IntelRealSense/realsense-ros
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
 sudo apt-get install ros-$ROS_DISTRO-realsense2-description
@@ -63,7 +63,8 @@ catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
 catkin_make install
 ~~~
 
-- IMU Filter Madwick Installation : https://github.com/CCNYRoboticsLab/imu_tools
+### IMU Filter Madwick Installation 
+1. Install Madwick : https://github.com/CCNYRoboticsLab/imu_tools
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-imu-tools
 cd ~/catkin_ws/src/
@@ -73,12 +74,14 @@ cd ~/catkin_ws
 catkin_make
 ~~~
 
-- Mask R-CNN Installation
-1. Requirement Version 
+### Mask R-CNN Installation
+1. Requirement Version : https://github.com/matterport/Mask_RCNN/blob/master/requirements.txt
 ```diff 
 - python>=3.7,<3.10
 - numpy<1.25.0,>=1.20
 - pillow>=8.3.2
+- tensorflow>=1.3.0
+- keras>=2.0.8
 ```
 2. Upgrade Python Version : https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/
 ~~~
@@ -112,7 +115,7 @@ pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
 
-- Kobuki Installation : https://www.youtube.com/watch?v=edNsh7bHkhQ
+### Kobuki Installation : https://www.youtube.com/watch?v=edNsh7bHkhQ
 ```diff
 ! Please follow the youtube tutorial
 ```
@@ -149,7 +152,7 @@ catkin_make
 source devel/setup.bash
 ~~~
  
-- mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
+### mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
