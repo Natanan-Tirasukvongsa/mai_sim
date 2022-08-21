@@ -115,11 +115,11 @@ pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
 
-### Kobuki Installation : https://www.youtube.com/watch?v=edNsh7bHkhQ
+### Kobuki Installation
 ```diff
 ! Please follow the youtube tutorial
 ```
-1. Create Kobuki Workspace 
+1. Create Kobuki Workspace : https://www.youtube.com/watch?v=edNsh7bHkhQ
 ~~~
 mkdir kobuki_ws
 cd kobuki_ws
