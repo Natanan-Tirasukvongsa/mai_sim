@@ -75,7 +75,7 @@ catkin_make
 ~~~
 
 ### Mask R-CNN Installation
-1. Requirement Version : https://github.com/matterport/Mask_RCNN/blob/master/requirements.txt
+1. Requirement Version : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x/blob/master/requirements.txt
 ```diff 
 - python>=3.4
 - numpy<1.25.0,>=1.20
@@ -83,8 +83,18 @@ catkin_make
 - tensorflow>=1.3.0
 - keras>=2.0.8
 ```
-2. Change Python Version :
-- check python version
+2. Using Version
+```diff
+@@ Python 3.8.10
+@@ numpy 1.19.5
+@@ Pillow 9.2.0
+@@ tensorflow 2.4.3
+@@ Keras 2.4.0
+@@ h5py 2.10.0
+@@ ROS Noetic (Ubuntu 20.04 LTS)
+```
+3. Change Python Version 
+- Checking version
 ~~~
 python3 --version
 ~~~
@@ -101,40 +111,65 @@ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 sudo update-alternatives --config python3
 ~~~
 
-3. Change Numpy Version : https://github.com/tensorflow/models/issues/9200
+4. Change Numpy Version 
+- Checking version
+~~~
+pip3 show numpy
+~~~
+- Changing version : https://github.com/tensorflow/models/issues/9200
 ~~~
 pip3 uninstall numpy
 
 # choose desire version
 pip3 install numpy==1.20
 ~~~
-4. Change Tensorflow Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+5. Change Tensorflow Version 
+- Checking version
+~~~
+pip3 show tensorflow
+~~~
+- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall tensorflow
 
 # choose desire version
 pip3 install tensorflow==1.15.3
 ~~~
-5. Change Keras Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+6. Change Keras Version 
+- Checking version
+~~~
+pip3 show keras
+~~~
+- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall keras
 
 # choose desire version
 pip3 install keras==2.0.8
 ~~~
-6. Change h5py Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+7. Change h5py Version 
+- Checking version
+~~~
+pip3 show h5py
+~~~
+- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall h5py
 
 # choose desire version
 pip3 install h5py==2.10.0
 ~~~
-7. Change Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
+8. Change Pillow Version 
+- Checking version
+~~~
+pip3 show pillow
+~~~
+- Changing version : https://pillow.readthedocs.io/en/stable/installation.html
 ~~~
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade Pillow
 ~~~
-8. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
+9. Install Mask R-CNN : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x
 ~~~
 cd catkin_ws/src
 git clone git clone https://github.com/matterport/Mask_RCNN.git
@@ -143,31 +178,11 @@ pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
 ```diff
-- if need permission 
+- if need permission, try this command below 
 ```
 ~~~
 sudo python3 setup.py install
 ~~~
-9. Fixing error 
-- No module 'keras.engine' has no attribute 'Layer': https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
-  - Check Tensorflow and Keras Version 
-    ~~~
-    pip3 show tensorflow
-    pip3 show keras
-    ~~~
-  - Change Tensorflow and Keras Version
-    ~~~
-    pip3 uninstall tensorflow -y
-    pip3 uninstall keras -y
-    pip3 install keras==2.4.0
-    pip3 install tensorflow==2.4.3
-    ~~~
-- AttributeError: module 'tensorflow' has no attribute 'log' : https://stackoverflow.com/questions/63635864/problem-with-mask-rcnn-samples-demo-ipynb-attributeerror-module-tensorflow
-```diff
-- replace tf.log to tf.math.log
-- replace tf.random_shuffle to tf.random.shuffle
-```
-- ValueError: Tried to convert 'shape' to a tensor and failed. Error: None values not supported. : 
 
 ### Kobuki Installation
 ```diff
