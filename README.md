@@ -85,19 +85,19 @@ catkin_make
 ```
 2. Using Version
 ```diff
-@@ Python 3.8.10
-@@ numpy 1.19.5
-@@ Pillow 9.2.0
-@@ Cython 0.29.14
-@@ matplotlib 3.1.2
-@@ scikit-image 0.19.3
-@@ tensorflow 2.4.3
-@@ Keras 2.4.0
-@@ opencv-python 4.6.0.66
-@@ h5py 2.10.0
-@@ imgaug 0.4.0
-@@ ipython 7.34.0
-@@ ROS Noetic (Ubuntu 20.04 LTS)
+@@ Python 3.8.10 @@
+@@ numpy 1.19.5 @@
+@@ Pillow 9.2.0 @@
+@@ Cython 0.29.14 @@
+@@ matplotlib 3.1.2 @@
+@@ scikit-image 0.19.3 @@
+@@ tensorflow 2.4.3 @@
+@@ Keras 2.4.0 @@
+@@ opencv-python 4.6.0.66 @@
+@@ h5py 2.10.0 @@
+@@ imgaug 0.4.0 @@
+@@ ipython 7.34.0 @@
+@@ ROS Noetic (Ubuntu 20.04 LTS) @@
 ```
 3. Change Python Version 
 - Checking version
