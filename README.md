@@ -1,6 +1,7 @@
 # mai_sim
 mai_sim package is used for 3D SLAM in dynamic environment using deep learning. Deep learning detects dynamic obstacle such as human. It will filter dynamic obstacle after detecting. Image without dynamic obstacle will be an input for building 3D map. It use RTAB-Map package to make 3D SLAM.      
 
+---
 <a name="table"></a>
 ## Table of Contents
 * [Installation](#setup)
