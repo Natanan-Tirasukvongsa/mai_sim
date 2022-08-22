@@ -151,17 +151,17 @@ sudo python3 setup.py install
 9. Fixing error 
 - No module 'keras.engine' has no attribute 'Layer': https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
   - Check Tensorflow and Keras Version 
-~~~
-pip3 show tensorflow
-pip3 show keras
-~~~
+    ~~~
+    pip3 show tensorflow
+    pip3 show keras
+    ~~~
   - Change Tensorflow and Keras Version
-~~~
-pip3 uninstall tensorflow -y
-pip3 uninstall keras -y
-pip3 install tensorflow==2.4.3
-pip3 install keras==2.4.0
-~~~
+    ~~~
+    pip3 uninstall tensorflow -y
+    pip3 uninstall keras -y
+    pip3 install tensorflow==2.4.3
+    pip3 install keras==2.4.0
+    ~~~
 - 
 
 ### Kobuki Installation
