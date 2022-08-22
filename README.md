@@ -1,10 +1,7 @@
 # mai_sim
 
 <a name="table"></a>
-<details>
-<summary><b>
 ## Table of Contents
-</summary>
 * [Installation](#setup)
    * [RTAB-Map Installation](#RTAB_in) 
    * [Realsense (D435i) Installation](#RS_in) 
@@ -22,10 +19,10 @@
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
-</details>
 
 <a name="setup"></a>
-## Installation ⚙️ [Go back to table](#table) 
+## Installation ⚙️ 
+[Go back to table](#table) 
 <a name="RTAB_in"></a>
 ### RTAB-Map Installation 
 1. Install RTAB-Map Binaries : https://github.com/introlab/rtabmap_ros
