@@ -4,8 +4,10 @@
 * [Installation](#setup)
    * [RTAB-Map Installation](#RTAB_in) 
    * [Realsense (D435i) Installation](#RS_in) 
-   * [IMU Filter Madwick Installation](IMU_in)
-   * [Mask R-CNN Installation](Mask_in)
+   * [IMU Filter Madwick Installation](#IMU_in)
+   * [Mask R-CNN Installation](#Mask_in)
+   * [Kobuki Installation](#kobuki_in)
+   * [mai_sim Installation](#mai_in)
 * [Launch Files](#launch)
 * [Object Detection and Segmentation](#technology)
 * [My Learning](#learning)
@@ -197,6 +199,7 @@ python3 setup.py install
 sudo python3 setup.py install
 ~~~
 
+<a name="kobuki_in"></a>
 ### Kobuki Installation
 ```diff
 ! Please follow the youtube tutorial
@@ -233,7 +236,8 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source devel/setup.bash
 ~~~
- 
+
+<a name="mai_in"></a>
 ### mai_sim Installation 
 1. Install mai_sim : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 ~~~
