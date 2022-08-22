@@ -19,7 +19,7 @@
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
-
+---
 <a name="setup"></a>
 ## Installation ⚙️ 
 [Go back to table](#table) 
@@ -255,6 +255,7 @@ git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 cd ..
 catkin_make
 ~~~
+---
 <a name="launch"></a>
 ## Launch Files 📁
 <a name="RTAB_L"></a>
@@ -362,6 +363,7 @@ rosrun mai_sim joy_trajectory3
 |:--:| 
 | *Turtlesim Velocity Control* |
 
+---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
 <a name="Mask"></a>
@@ -371,6 +373,7 @@ rosrun mai_sim joy_trajectory3
 :--:| 
 | *Human Segmentation* |
 
+---
 <a name="learning"></a>
 ## My Learning 📕
 - Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
