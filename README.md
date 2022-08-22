@@ -77,7 +77,7 @@ catkin_make
 ### Mask R-CNN Installation
 1. Requirement Version : https://github.com/matterport/Mask_RCNN/blob/master/requirements.txt
 ```diff 
-- python>=3.7,<3.8
+- python>=3.4
 - numpy<1.25.0,>=1.20
 - pillow>=8.3.2
 - tensorflow>=1.3.0
@@ -159,10 +159,15 @@ sudo python3 setup.py install
     ~~~
     pip3 uninstall tensorflow -y
     pip3 uninstall keras -y
-    pip3 install tensorflow==2.4.3
     pip3 install keras==2.4.0
+    pip3 install tensorflow==2.4.3
     ~~~
-- 
+- AttributeError: module 'tensorflow' has no attribute 'log' : https://stackoverflow.com/questions/63635864/problem-with-mask-rcnn-samples-demo-ipynb-attributeerror-module-tensorflow
+```diff
+- replace tf.log to tf.math.log
+- replace tf.random_shuffle to tf.random.shuffle
+```
+- ValueError: Tried to convert 'shape' to a tensor and failed. Error: None values not supported. : 
 
 ### Kobuki Installation
 ```diff
