@@ -8,14 +8,13 @@
 
 <a name="setup"></a>
 ## Installation ⚙️
-
-- RTAB-Map Installation : https://github.com/introlab/rtabmap_ros
-1. Install RTAB-Map Binaries
+### RTAB-Map Installation 
+1. Install RTAB-Map Binaries : https://github.com/introlab/rtabmap_ros
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
 ~~~
-2. Install RTAB-Map standalone libraries
+2. Install RTAB-Map standalone libraries : https://github.com/introlab/rtabmap_ros
 ~~~
 cd ~
 git clone https://github.com/introlab/rtabmap.git rtabmap
@@ -24,7 +23,7 @@ cmake .. [<---double dots included]
 make -j6
 sudo make install
 ~~~
-3. Install RTAB-Map ros-pkg
+3. Install RTAB-Map ros-pkg : https://github.com/introlab/rtabmap_ros
 ```diff
 ! If you install rtabmap-ros which is not support multi-camera, you need to remove it  
 ! Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
@@ -47,7 +46,8 @@ catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON
 - RTAB-Map Melodic Error Installation : https://enormous-bulb-826.notion.site/RTABMAP-a01c090bc07e49ceae4fc2187dc44f9c 
 ```
 
-- Realsense (D435i) Installation : https://github.com/IntelRealSense/realsense-ros
+### Realsense (D435i) Installation 
+1. Install Realsense (D435i) : https://github.com/IntelRealSense/realsense-ros
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
 sudo apt-get install ros-$ROS_DISTRO-realsense2-description
@@ -63,7 +63,8 @@ catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
 catkin_make install
 ~~~
 
-- IMU Filter Madwick Installation : https://github.com/CCNYRoboticsLab/imu_tools
+### IMU Filter Madwick Installation 
+1. Install Madwick : https://github.com/CCNYRoboticsLab/imu_tools
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-imu-tools
 cd ~/catkin_ws/src/
@@ -73,22 +74,101 @@ cd ~/catkin_ws
 catkin_make
 ~~~
 
-- Mask R-CNN Installation : https://github.com/matterport/Mask_RCNN
+### Mask R-CNN Installation
+1. Requirement Version : https://github.com/matterport/Mask_RCNN/blob/master/requirements.txt
+```diff 
+- python>=3.7,<3.8
+- numpy<1.25.0,>=1.20
+- pillow>=8.3.2
+- tensorflow>=1.3.0
+- keras>=2.0.8
+```
+2. Change Python Version :
+- check python version
 ~~~
-cd ~/catkin_ws/src
+python3 --version
+~~~
+- Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
+~~~
+# install desire version
+sudo apt-get install python3.7
+
+# set priority python version
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+
+# change version by selecting number which is /usr/bin/python3.7
+sudo update-alternatives --config python3
+~~~
+
+3. Change Numpy Version : https://github.com/tensorflow/models/issues/9200
+~~~
+pip3 uninstall numpy
+
+# choose desire version
+pip3 install numpy==1.20
+~~~
+4. Change Tensorflow Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall tensorflow
+
+# choose desire version
+pip3 install tensorflow==1.15.3
+~~~
+5. Change Keras Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall keras
+
+# choose desire version
+pip3 install keras==2.0.8
+~~~
+6. Change h5py Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall h5py
+
+# choose desire version
+pip3 install h5py==2.10.0
+~~~
+7. Change Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
+~~~
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
+~~~
+8. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
+~~~
+cd catkin_ws/src
+git clone git clone https://github.com/matterport/Mask_RCNN.git
+cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
 ```diff
-- ROS Melodic needs to upgrade python3 (3.7.x or more) -
+- if need permission 
 ```
+~~~
+sudo python3 setup.py install
+~~~
+9. Fixing error 
+- No module 'keras.engine' has no attribute 'Layer': https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+  - Check Tensorflow and Keras Version 
+    ~~~
+    pip3 show tensorflow
+    pip3 show keras
+    ~~~
+  - Change Tensorflow and Keras Version
+    ~~~
+    pip3 uninstall tensorflow -y
+    pip3 uninstall keras -y
+    pip3 install tensorflow==2.4.3
+    pip3 install keras==2.4.0
+    ~~~
+- 
 
-- Kobuki Installation : 
-  - https://www.youtube.com/watch?v=edNsh7bHkhQ
+### Kobuki Installation
 ```diff
 ! Please follow the youtube tutorial
 ```
-1. Create Kobuki Workspace 
+1. Create Kobuki Workspace : https://www.youtube.com/watch?v=edNsh7bHkhQ
 ~~~
 mkdir kobuki_ws
 cd kobuki_ws
@@ -121,7 +201,8 @@ catkin_make
 source devel/setup.bash
 ~~~
  
-- mai_sim Installation : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
+### mai_sim Installation 
+1. Install mai_sim : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
@@ -232,7 +313,7 @@ rosrun mai_sim joy_trajectory3
 
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
-### Mask R-CNN (***Coming Soon***) 
+### Mask R-CNN
 
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
 :--:| 
