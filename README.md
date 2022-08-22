@@ -108,31 +108,31 @@ pip3 uninstall numpy
 # choose desire version
 pip3 install numpy==1.20
 ~~~
-4. Change Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
-~~~
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade Pillow
-~~~
-5. Change Tensorflow Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+4. Change Tensorflow Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall tensorflow
 
 # choose desire version
 pip3 install tensorflow==1.15.3
 ~~~
-6. Change Keras Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+5. Change Keras Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall keras
 
 # choose desire version
 pip3 install keras==2.0.8
 ~~~
-7. Change h5py Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+6. Change h5py Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
 ~~~
 pip3 uninstall h5py
 
 # choose desire version
 pip3 install h5py==2.10.0
+~~~
+7. Change Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
+~~~
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
 ~~~
 8. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
 ~~~
