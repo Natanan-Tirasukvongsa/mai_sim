@@ -77,36 +77,64 @@ catkin_make
 ### Mask R-CNN Installation
 1. Requirement Version : https://github.com/matterport/Mask_RCNN/blob/master/requirements.txt
 ```diff 
-- python>=3.7,<3.10
+- python>=3.7,<3.8
 - numpy<1.25.0,>=1.20
 - pillow>=8.3.2
 - tensorflow>=1.3.0
 - keras>=2.0.8
 ```
-2. Upgrade Python Version : https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/
+2. Change Python Version :
+- check python version
 ~~~
-# check python version
 python3 --version
-
-# if python version <3.7
-sudo apt update
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-
-# choose desire python version
-sudo apt install python3.9
 ~~~
-3. Upgrade Numpy Version : https://github.com/tensorflow/models/issues/9200
+- Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
+~~~
+# install desire version
+sudo apt-get install python3.7
+
+# set priority python version
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+
+# change version by selecting number which is /usr/bin/python3.7
+sudo update-alternatives --config python3
+~~~
+
+3. Change Numpy Version : https://github.com/tensorflow/models/issues/9200
 ~~~
 pip3 uninstall numpy
+
+# choose desire version
 pip3 install numpy==1.20
 ~~~
-4. Upgrade Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
+4. Change Pillow Version : https://pillow.readthedocs.io/en/stable/installation.html
 ~~~
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade Pillow
 ~~~
-5. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
+5. Change Tensorflow Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall tensorflow
+
+# choose desire version
+pip3 install tensorflow==1.15.3
+~~~
+6. Change Keras Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall keras
+
+# choose desire version
+pip3 install keras==2.0.8
+~~~
+7. Change h5py Version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+~~~
+pip3 uninstall h5py
+
+# choose desire version
+pip3 install h5py==2.10.0
+~~~
+8. Install Mask R-CNN : https://github.com/matterport/Mask_RCNN
 ~~~
 cd catkin_ws/src
 git clone git clone https://github.com/matterport/Mask_RCNN.git
@@ -114,6 +142,27 @@ cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
 ~~~
+```diff
+- if need permission 
+```
+~~~
+sudo python3 setup.py install
+~~~
+9. Fixing error 
+- No module 'keras.engine' has no attribute 'Layer': https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+  - Check Tensorflow and Keras Version 
+~~~
+pip3 show tensorflow
+pip3 show keras
+~~~
+  - Change Tensorflow and Keras Version
+~~~
+pip3 uninstall tensorflow -y
+pip3 uninstall keras -y
+pip3 install tensorflow==2.4.3
+pip3 install keras==2.4.0
+~~~
+- 
 
 ### Kobuki Installation
 ```diff
