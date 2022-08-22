@@ -143,7 +143,7 @@ catkin_make
     pip3 uninstall numpy
 
     # choose desire version
-    pip3 install numpy==1.20
+    pip3 install numpy==1.19.5
     ~~~
 5. Change Tensorflow Version 
     - Checking version
@@ -155,7 +155,7 @@ catkin_make
     pip3 uninstall tensorflow
 
     # choose desire version
-    pip3 install tensorflow==1.15.3
+    pip3 install tensorflow==2.4.3
     ~~~
 6. Change Keras Version 
     - Checking version
@@ -167,7 +167,7 @@ catkin_make
     pip3 uninstall keras
 
     # choose desire version
-    pip3 install keras==2.0.8
+    pip3 install keras==2.4.0
     ~~~
 7. Change h5py Version 
     - Checking version
