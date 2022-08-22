@@ -13,17 +13,6 @@ using namespace std;
 // Key variable declarations 
 geometry_msgs::Twist velCommand; // Linear and angular velocity in m/s 
 geometry_msgs::Pose2D current; // Current x, y, and theta 
-geometry_msgs::Pose2D desired; // Desired x, y, and theta 
- 
-// Goal x-value, which can be any number from 0 to 11 (inclusive)
-const double GOAL = 1.3;
- 
-// The gain K, which is used to calculate the linear velocity
-const double K_l = 1.0;
- 
-// The distance threshold in meters that will determine when 
-// the turtlesim robot successfully reaches the goal.
-const double distanceTolerance = 0.1;
 
 geometry_msgs::Twist velStop; // Stop angula velocity and linear velocity
 
@@ -37,7 +26,18 @@ float beginTime; //start trajectory
 float durationTime; //time offset
 float endTime; //stop trajectory
 float tau; // trajectory time
-float tau_max; // maximum time
+float tau_max = 1.5; // maximum time
+
+float tau_max_angular = 0.0; // trajectory in second
+float tau_max_linear = 0.0; // trajectory in second
+
+float velo_max_angular = 0.2; // trajectory in second (max @ pi rad/s)
+float velo_max_linear = 0.4; // trajectory in second (max @ 0.7 m/s)
+
+float acc_max_angular = 0.2; // maximum angular acceleration
+float jerk_max_angular = 0.1; //maimum angular jerk 
+float acc_max_linear = 0.1; // maximum linear acceleration
+float jerk_max_linear = 0.05; //maimum linear jerk 
 
 float c_0_angular = 0; //first coeficient for augular velocity 
 float c_1_angular = 0; //second coeficient for augular velocity 
@@ -53,24 +53,10 @@ float c_3_linear = 0; //fourth coeficient for linear velocity
 float c_4_linear = 0; //fifth coeficient for linear velocity 
 float c_5_linear = 0; //sixth coeficient for linear velocity 
 
-float tau_max_angular = 0.0; // trajectory in second
-float tau_max_linear = 0.0; // trajectory in second
-
-float velo_max_angular = 0.5; // trajectory in second (max @ pi rad/s)
-float velo_max_linear = 0.7; // trajectory in second (max @ 0.7 m/s)
-
-float acc_max_angular = 0.25; // maximum angular acceleration
-float jerk_max_angular = 0.1; //maimum angular jerk 
-float acc_max_linear = 0.4; // maximum linear acceleration
-float jerk_max_linear = 0.2; //maimum linear jerk 
-
  
 // Initialized variables and take care of other setup tasks
 void setup() {
- 
-  // Desired x goal coordinate
-  desired.x = GOAL;
-   
+
   // Initialize the Twist message.
   // Initial linear and angular velocities are 0 m/s and rad/s, respectively.
   velCommand.linear.x = 0.0;
@@ -88,29 +74,7 @@ void setup() {
   velStart.angular.z = 0.0;
   velStart.linear.x = 0.0;
 }
- 
-// Get the distance between the current x coordinate and 
-// the desired x coordinate.
-double getDistanceToGoal() {
-  return desired.x - current.x;
-}
- 
-// If we haven't yet reached the goal, set the velocity value.
-// Otherwise, stop the robot.
-void setVelocity() {
-  if (abs(getDistanceToGoal()) > distanceTolerance) {
- 
-    // The magnitude of the robot's velocity is directly
-    // proportional to the distance the robot is from the 
-    // goal.
-    velCommand.linear.x = K_l * getDistanceToGoal();
-  }
-  else {
-    cout << "Goal has been reached!" << endl << endl;
-    velCommand.linear.x = 0;
-  }
-}
- 
+
 // This callback function updates the current position and 
 // orientation of the robot. 
 void callbackPose(const turtlesim::PoseConstPtr &currentPose) {
@@ -134,8 +98,16 @@ void callbackVel(const geometry_msgs::Twist &currentVel)
 
 void callbackJoy(const sensor_msgs::JoyConstPtr &joy) {
     //recieve value from joystick
-    velStop.angular.z = velo_max_angular*joy->axes[0];
-    velStop.linear.x = velo_max_linear*joy->axes[1]; 
+    if (joy->axes[0] == 0 && joy->axes[1]==0)
+    {
+      velStop.angular.z = velo_max_angular*joy->axes[3];
+      velStop.linear.x = 0; 
+    }
+    else
+    {
+      velStop.angular.z = velo_max_angular*joy->axes[0];
+      velStop.linear.x = velo_max_linear*joy->axes[1]; 
+    }
     start = 1;
 }
 
@@ -145,9 +117,9 @@ void trajectory()
     {
         start = 0;
 
-        tau_max_angular = 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular)) ? 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular));
-        tau_max_linear = 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear)) ? 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear));
-        tau_max = tau_max_angular >= tau_max_linear ? tau_max_angular : tau_max_linear;
+        // tau_max_angular = 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular)) ? 15/8*(velStop.angular.z - velStart.angular.z)/acc_max_angular : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.angular.z-velStart.angular.z)/jerk_max_angular));
+        // tau_max_linear = 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear >= sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear)) ? 15/8*(velStop.linear.x - velStart.linear.x)/acc_max_linear : sqrtf(fabs(((10*powf(3+sqrtf(3),1))-(5*powf(3+sqrtf(3),2))+(5*powf(3+sqrtf(3),3)/9))*(velStop.linear.x-velStart.linear.x)/jerk_max_linear));
+        // tau_max = tau_max_angular >= tau_max_linear ? tau_max_angular : tau_max_linear;
 
         c_0_angular =  velStart.angular.z;
         c_3_angular = 10*(velStop.angular.z-velStart.angular.z)/powf(tau_max,3);
