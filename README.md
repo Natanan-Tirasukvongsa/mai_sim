@@ -383,7 +383,8 @@ rosrun mai_sim joy_trajectory3
 ---
 <a name="learning"></a>
 ## My Learning 📕
-- Learning Diary : https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
+- Learning Diary : 
+  - https://www.notion.so/Learning-SCRUM-c5d8c57dbaba445d9ce6e99bdd0f157d
 
 - Create 3D Map with RTAB-Map :
   - http://official-rtab-map-forum.206.s1.nabble.com/How-to-process-RGBD-SLAM-datasets-with-RTAB-Map-td939.html#a647
@@ -391,7 +392,8 @@ rosrun mai_sim joy_trajectory3
   - http://official-rtab-map-forum.206.s1.nabble.com/RGBD-source-td2869.html#a8086
   - http://official-rtab-map-forum.206.s1.nabble.com/RtabMap-reads-video-images-from-file-td1290.html#a1693
 
-- RGB-D SLAM Dataset : https://vision.in.tum.de/data/datasets/rgbd-dataset/download?fbclid=IwAR2UmqP0Cqyt3t_zzH-llFTA7--ZPEv5y4wq1kZ6i3BqDxu8GXX-KT0zFaI
+- RGB-D SLAM Dataset : 
+  - https://vision.in.tum.de/data/datasets/rgbd-dataset/download?fbclid=IwAR2UmqP0Cqyt3t_zzH-llFTA7--ZPEv5y4wq1kZ6i3BqDxu8GXX-KT0zFaI
 
 - RTAB-Map with Multi - Camera :
   - http://official-rtab-map-forum.206.s1.nabble.com/RTABMAP-to-be-integrated-for-two-ZED2i-cameras-td8976.html 
