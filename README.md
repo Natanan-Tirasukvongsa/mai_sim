@@ -91,15 +91,22 @@ catkin_make
 ~~~
 <a name="Mask_in"></a>
 ### Mask R-CNN Installation
-1. Requirement Version : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x/blob/master/requirements.txt
+1. Requirement package : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x/blob/master/requirements.txt
 ```diff 
-- python>=3.4
-- numpy<1.25.0,>=1.20
-- pillow>=8.3.2
+- numpy
+- scipy
+- Pillow
+- cython
+- matplotlib
+- scikit-image
 - tensorflow>=1.3.0
 - keras>=2.0.8
+- opencv-python
+- h5py
+- imgaug
+- IPython[all]
 ```
-2. Using Version
+2. My Using Version
 ```diff
 @@ Python         3.8.10    @@
 @@ numpy          1.19.5    @@
