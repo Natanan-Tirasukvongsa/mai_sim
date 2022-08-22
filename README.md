@@ -116,81 +116,81 @@ catkin_make
 @@ Ubuntu         20.04 LTS @@
 ```
 3. Change Python Version 
-- Checking version
-~~~
-python3 --version
-~~~
-- Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
-~~~
-# install desire version
-sudo apt-get install python3.7
+    - Checking version
+    ~~~
+    python3 --version
+    ~~~
+    - Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
+    ~~~
+    # install desire version
+    sudo apt-get install python3.7
 
-# set priority python version
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+    # set priority python version
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 
-# change version by selecting number which is /usr/bin/python3.7
-sudo update-alternatives --config python3
-~~~
+    # change version by selecting number which is /usr/bin/python3.7
+    sudo update-alternatives --config python3
+    ~~~
 
 4. Change Numpy Version 
-- Checking version
-~~~
-pip3 show numpy
-~~~
-- Changing version : https://github.com/tensorflow/models/issues/9200
-~~~
-pip3 uninstall numpy
+    - Checking version
+    ~~~
+    pip3 show numpy
+    ~~~
+    - Changing version : https://github.com/tensorflow/models/issues/9200
+    ~~~
+    pip3 uninstall numpy
 
-# choose desire version
-pip3 install numpy==1.20
-~~~
+    # choose desire version
+    pip3 install numpy==1.20
+    ~~~
 5. Change Tensorflow Version 
-- Checking version
-~~~
-pip3 show tensorflow
-~~~
-- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
-~~~
-pip3 uninstall tensorflow
+    - Checking version
+    ~~~
+    pip3 show tensorflow
+    ~~~
+    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    ~~~
+    pip3 uninstall tensorflow
 
-# choose desire version
-pip3 install tensorflow==1.15.3
-~~~
+    # choose desire version
+    pip3 install tensorflow==1.15.3
+    ~~~
 6. Change Keras Version 
-- Checking version
-~~~
-pip3 show keras
-~~~
-- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
-~~~
-pip3 uninstall keras
+    - Checking version
+    ~~~
+    pip3 show keras
+    ~~~
+    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    ~~~
+    pip3 uninstall keras
 
-# choose desire version
-pip3 install keras==2.0.8
-~~~
+    # choose desire version
+    pip3 install keras==2.0.8
+    ~~~
 7. Change h5py Version 
-- Checking version
-~~~
-pip3 show h5py
-~~~
-- Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
-~~~
-pip3 uninstall h5py
+    - Checking version
+    ~~~
+    pip3 show h5py
+    ~~~
+    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    ~~~
+    pip3 uninstall h5py
 
-# choose desire version
-pip3 install h5py==2.10.0
-~~~
+    # choose desire version
+    pip3 install h5py==2.10.0
+    ~~~
 8. Change Pillow Version 
-- Checking version
-~~~
-pip3 show pillow
-~~~
-- Changing version : https://pillow.readthedocs.io/en/stable/installation.html
-~~~
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade Pillow
-~~~
+    - Checking version
+    ~~~
+    pip3 show pillow
+    ~~~
+    - Changing version : https://pillow.readthedocs.io/en/stable/installation.html
+    ~~~
+    python3 -m pip install --upgrade pip
+    python3 -m pip install --upgrade Pillow
+    ~~~
 9. Install Mask R-CNN : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x
 ~~~
 cd catkin_ws/src
@@ -205,6 +205,7 @@ python3 setup.py install
 ~~~
 sudo python3 setup.py install
 ~~~
+
 <a name="kobuki_in"></a>
 ### Kobuki Installation
 ```diff
