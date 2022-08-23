@@ -365,6 +365,12 @@ rosrun joy joy_node
 rosrun turtlesim turtlesim_node 
 rosrun mai_sim joy_trajectory3
 ~~~
+```diff
+@@ another way to launch @@
+```
+~~~
+roslaunch mai_sim joy_trajectory.launch 
+~~~
 
 ![Screenshot from 2022-08-19 20-55-32](https://user-images.githubusercontent.com/78638430/185634686-37945c1b-ebfe-42e6-8c9b-2012c0aae415.png)
 |:--:| 
