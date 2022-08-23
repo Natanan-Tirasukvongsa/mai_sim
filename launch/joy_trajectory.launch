@@ -14,7 +14,7 @@
   <param name="axis_angular" value="0" type="int"/>
   <param name="scale_linear" value="2" type="double"/>
   <param name="scale_angular" value="2" type="double"/> -->
-  <node pkg="mai_sim" type="joy_trajectory3" name="teleop"/>
+  <node pkg="mai_sim" type="joy_trajectory3" name="teleop" output="screen"/>
 </launch>
 
 <!-->

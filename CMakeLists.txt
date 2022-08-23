@@ -253,3 +253,6 @@ target_link_libraries(joy_trajectory2 ${catkin_LIBRARIES})
 
 add_executable(joy_trajectory3 src/joy_trajectory3.cpp)
 target_link_libraries(joy_trajectory3 ${catkin_LIBRARIES})
+
+add_executable(joy_trajectory4 src/joy_trajectory4.cpp)
+target_link_libraries(joy_trajectory4 ${catkin_LIBRARIES})
