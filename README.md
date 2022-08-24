@@ -382,6 +382,9 @@ roslaunch mai_sim joy_trajectory.launch
 ~~~
 roslaunch mai_sim joy_kobuki.launch 
 ~~~
+```diff
+! Joystick : [Logitech](https://www.powerbuy.co.th/th/product/logitech-controller-logitech-wireless-gamepad-f710-225329?gclid=EAIaIQobChMIo7KVm__e-QIVD38rCh0OXwgxEAQYAyABEgI-xvD_BwE) 
+```
 ---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
