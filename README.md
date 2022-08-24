@@ -18,6 +18,7 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
   * [Multi-Realsense](#M_L)
   * [RTAB-Map with Multi-Realsense](#RTAB_M_L)
   * [Turtlesim Trajectory Control Using Joystick](#T_J_L)
+  * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
@@ -132,13 +133,13 @@ catkin_make
     - Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
     ~~~
     # install desire version
-    sudo apt-get install python3.7
+    sudo apt-get install python3.x
 
     # set priority python version
     sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.x 2
 
-    # change version by selecting number which is /usr/bin/python3.7
+    # change version by selecting number which is /usr/bin/python3.x
     sudo update-alternatives --config python3
     ~~~
 
@@ -376,6 +377,11 @@ roslaunch mai_sim joy_trajectory.launch
 |:--:| 
 | *Turtlesim Velocity Control* |
 
+<a name="kobuki_J_L"></a>
+### Kobuki Trajectory Control Using Joystick
+~~~
+roslaunch mai_sim joy_kobuki.launch 
+~~~
 ---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
