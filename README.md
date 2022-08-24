@@ -10,6 +10,7 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
    * [IMU Filter Madwick Installation](#IMU_in)
    * [Mask R-CNN Installation](#Mask_in)
    * [Kobuki Installation](#kobuki_in)
+   * [Turtlesim Installation](#turtle_in)
    * [Joystick Installation](#joy_in)
    * [mai_sim Installation](#mai_in)
 * [Launch Files](#launch)
@@ -253,6 +254,14 @@ cd kobuki_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source devel/setup.bash
+~~~
+
+<a name="turtle_in"></a>
+### Turtlesim Installation
+1. Install Turtlesim : http://wiki.ros.org/turtlesim
+```
+~~~
+sudo apt-get install ros-$ROS_DISTRO-turtlesim
 ~~~
 
 <a name="joy_in"></a>
