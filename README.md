@@ -10,6 +10,7 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
    * [IMU Filter Madwick Installation](#IMU_in)
    * [Mask R-CNN Installation](#Mask_in)
    * [Kobuki Installation](#kobuki_in)
+   * [Joystick Installation](#joy_in)
    * [mai_sim Installation](#mai_in)
 * [Launch Files](#launch)
   * [RTAB-Map with 1 Realsense](#RTAB_L)
@@ -253,6 +254,23 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source devel/setup.bash
 ~~~
+
+<a name="joy_in"></a>
+### Joystick Installation
+1. Install Joystick : http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
+~~~
+sudo apt-get install ros-$ROS_DISTRO-joy
+~~~
+2. Configuring the Joystick
+~~~
+ls /dev/input/
+
+# X is joystick's number
+sudo jstest /dev/input/jsX
+ls -l /dev/input/jsX
+sudo chmod a+rw /dev/input/jsX
+~~~
+
 <a name="mai_in"></a>
 ### mai_sim Installation 
 1. Install mai_sim : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
