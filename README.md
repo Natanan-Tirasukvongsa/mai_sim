@@ -25,11 +25,7 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
     * [4 Realsense](#M_L_4)
   * [RTAB-Map with Multi-Realsense](#RTAB_M_L)
   * [Turtlesim Trajectory Control Using Joystick](#T_J_L)
-    * [Launching](#T_J_L_L)
-    * [Joystick](#T_J_L_J)  
-  * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)
-    * [Launching](#kobuki_J_L_L)
-    * [Joystick](#kobuki_J_L_J)   
+  * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)  
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
@@ -408,7 +404,7 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 
 <a name="T_J_L"></a>
 ### Turtlesim Trajectory Control Using Joystick
-<a name="T_J_L_L"></a>
+
 #### Launching
 ~~~
 roscore
@@ -422,7 +418,7 @@ rosrun mai_sim joy_trajectory3
 ~~~
 roslaunch mai_sim joy_trajectory.launch 
 ~~~
-<a name="T_J_L_J"></a>
+
 #### Joystick
 ```diff
 ! Brand : Logitech Gamepad F710
@@ -438,12 +434,12 @@ roslaunch mai_sim joy_trajectory.launch
 
 <a name="kobuki_J_L"></a>
 ### Kobuki Trajectory Control Using Joystick
-<a name="kobuki_J_L_L"></a>
+
 #### Launching
 ~~~
 roslaunch mai_sim joy_kobuki.launch 
 ~~~
-<a name="kobuki_J_L_J"></a>
+
 #### Joystick
 ```diff
 ! Brand : Logitech Gamepad F710
