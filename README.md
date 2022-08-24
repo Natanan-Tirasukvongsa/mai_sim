@@ -15,12 +15,21 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
    * [mai_sim Installation](#mai_in)
 * [Launch Files](#launch)
   * [RTAB-Map with 1 Realsense](#RTAB_L)
+   * [Launching](#RTAB_L_L)
+   * [RTAB-Map Mapping Mode](#RTAB_L_M)
+   * [RTAB-Map Localization Mode](#RTAB_L_Lo)
   * [Kobuki](#kobuki_L)
   * [Kobuki with Multi-Realsense](#kobuki_M_L)
   * [Multi-Realsense](#M_L)
+   * [2 Realsense](#M_L_2)
+   * [4 Realsense](#M_L_4)
   * [RTAB-Map with Multi-Realsense](#RTAB_M_L)
   * [Turtlesim Trajectory Control Using Joystick](#T_J_L)
+   * [Launching](#T_J_L_L)
+   * [Joystick](#T_J_L_J)  
   * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)
+   * [Launching](#kobuki_J_L)
+   * [Joystick](#kobuki_J_J)   
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
@@ -294,15 +303,18 @@ catkin_make
 ## Launch Files 📁
 <a name="RTAB_L"></a>
 ### RTAB-Map with 1 Realsense
-
-- Launch Realsense and Madgwick : [Link](http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping)
+<a name="#RTAB_L_L"></a>
+#### Launching
+- Launch Realsense : [Link](http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping)
 ~~~
 roslaunch realsense2_camera rs_camera.launch \
 align_depth:=true \
 unite_imu_method:="linear_interpolation" \
 enable_gyro:=true \
 enable_accel:=true
-
+~~~
+- Launch Madgick
+~~~
 rosrun imu_filter_madgwick imu_filter_node \
 _use_mag:=false \
 _publish_tf:=false \
@@ -311,7 +323,8 @@ _world_frame:="enu" \
 /imu/data:=/rtabmap/imu
 ~~~
 
-- RTAB Mapping Mode 
+<a name="#RTAB_L_M"></a>
+#### RTAB-Map Mapping Mode 
 ~~~~
 # --delete_db_on_start is used to start mapping from a clean database
 
@@ -331,8 +344,8 @@ imu_topic:=/rtabmap/imu
 |:--:| 
 | *Mapping with RTAB-Map* |
 
-
-- RTAB Localization Mode 
+<a name="#RTAB_L_Lo"></a>
+#### RTAB-Map Localization Mode 
 ~~~
 #  resetting the odometry
 rosservice call /rtabmap/reset_odom
@@ -366,18 +379,22 @@ roslaunch mai_sim kobuki_rs.launch
 
 <a name="M_L"></a>
 ### Multi-Realsense
-  - 2 Realsense
-  ~~~
-  roslaunch mai_sim test_rs.launch
-  ~~~
+
+<a name="M_L_2"></a>
+#### 2 Realsense
+~~~
+roslaunch mai_sim test_rs.launch
+~~~
 
 ![rs](https://user-images.githubusercontent.com/78638430/184531874-32c3b962-d3ab-4b69-ad7c-23df0176c201.png)
 |:--:| 
 | *2-Realsense* |
-  - 4 Realsense
-  ~~~
-  roslaunch mai_sim 4_rs.launch
-  ~~~
+
+<a name="M_L_4"></a>
+#### 4 Realsense
+~~~
+roslaunch mai_sim 4_rs.launch
+~~~
 
 <a name="RTAB_M_L"></a>
 ### RTAB-Map with Multi-Realsense
@@ -391,7 +408,8 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 
 <a name="T_J_L"></a>
 ### Turtlesim Trajectory Control Using Joystick
-- Launching
+<a name="T_J_L_L"></a>
+#### Launching
 ~~~
 roscore
 rosrun joy joy_node
@@ -404,7 +422,8 @@ rosrun mai_sim joy_trajectory3
 ~~~
 roslaunch mai_sim joy_trajectory.launch 
 ~~~
-- Joystick
+<a name="T_J_L_J"></a>
+#### Joystick
 ```diff
 ! Brand : Logitech Gamepad F710
 ! xbox mode
@@ -419,11 +438,13 @@ roslaunch mai_sim joy_trajectory.launch
 
 <a name="kobuki_J_L"></a>
 ### Kobuki Trajectory Control Using Joystick
-- Launching
+<a name="kobuki_J_L_L"></a>
+#### Launching
 ~~~
 roslaunch mai_sim joy_kobuki.launch 
 ~~~
-- Joystick
+<a name="kobuki_J_L_J"></a>
+#### Joystick
 ```diff
 ! Brand : Logitech Gamepad F710
 ! xbox mode
