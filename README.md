@@ -376,6 +376,10 @@ roslaunch mai_sim joy_trajectory.launch
 |:--:| 
 | *Turtlesim Velocity Control* |
 
+### Kobuki Trajectory Control Using Joystick
+~~~
+roslaunch mai_sim joy_kobuki.launch 
+~~~
 ---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
