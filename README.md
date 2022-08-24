@@ -361,26 +361,26 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 <a name="T_J_L"></a>
 ### Turtlesim Trajectory Control Using Joystick
 - Launching
-  ~~~
-  roscore
-  rosrun joy joy_node
-  rosrun turtlesim turtlesim_node 
-  rosrun mai_sim joy_trajectory3
-  ~~~
-  ```diff
-  @@ another way to launch @@
-  ```
-  ~~~
-  roslaunch mai_sim joy_trajectory.launch 
-  ~~~
+~~~
+roscore
+rosrun joy joy_node
+rosrun turtlesim turtlesim_node 
+rosrun mai_sim joy_trajectory3
+~~~
+```diff
+@@ another way to launch @@
+```
+~~~
+roslaunch mai_sim joy_trajectory.launch 
+~~~
 - Joystick
-  ```diff
-  ! Brand : Logitech Gamepad F710
-  ! xbox mode
-  ! Mode Button : off
-  ! Left Analog Stick : Control linear-x and angular-z velocity
-  ! Right Analog Stick : Control angular-z velocity
-  ```
+```diff
+! Brand : Logitech Gamepad F710
+! xbox mode
+! Mode Button : off
+! Left Analog Stick : Control linear-x and angular-z velocity
+! Right Analog Stick : Control angular-z velocity
+```
 
 ![Screenshot from 2022-08-19 20-55-32](https://user-images.githubusercontent.com/78638430/185634686-37945c1b-ebfe-42e6-8c9b-2012c0aae415.png)
 |:--:| 
@@ -389,17 +389,17 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
 <a name="kobuki_J_L"></a>
 ### Kobuki Trajectory Control Using Joystick
 - Launching
-  ~~~
-  roslaunch mai_sim joy_kobuki.launch 
-  ~~~
+~~~
+roslaunch mai_sim joy_kobuki.launch 
+~~~
 - Joystick
-  ```diff
-  ! Brand : Logitech Gamepad F710
-  ! xbox mode
-  ! Mode Button : off
-  ! Left Analog Stick : Control linear-x and angular-z velocity
-  ! Right Analog Stick : Control angular-z velocity
-  ```
+```diff
+! Brand : Logitech Gamepad F710
+! xbox mode
+! Mode Button : off
+! Left Analog Stick : Control linear-x and angular-z velocity
+! Right Analog Stick : Control angular-z velocity
+```
 ---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
