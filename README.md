@@ -372,6 +372,11 @@ rosrun mai_sim joy_trajectory3
 ~~~
 roslaunch mai_sim joy_trajectory.launch 
 ~~~
+```diff
+! Joystick : Logitech Gamepad F710
+! xbox mode
+! Mode Button : off
+```
 
 ![Screenshot from 2022-08-19 20-55-32](https://user-images.githubusercontent.com/78638430/185634686-37945c1b-ebfe-42e6-8c9b-2012c0aae415.png)
 |:--:| 
@@ -383,7 +388,9 @@ roslaunch mai_sim joy_trajectory.launch
 roslaunch mai_sim joy_kobuki.launch 
 ~~~
 ```diff
-! Joystick : [Logitech](https://www.powerbuy.co.th/th/product/logitech-controller-logitech-wireless-gamepad-f710-225329?gclid=EAIaIQobChMIo7KVm__e-QIVD38rCh0OXwgxEAQYAyABEgI-xvD_BwE) 
+! Joystick : Logitech Gamepad F710
+! xbox mode
+! Mode Button : off
 ```
 ---
 <a name="technology"></a>
