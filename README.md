@@ -18,6 +18,7 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
   * [Multi-Realsense](#M_L)
   * [RTAB-Map with Multi-Realsense](#RTAB_M_L)
   * [Turtlesim Trajectory Control Using Joystick](#T_J_L)
+  * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
 * [My Learning](#learning)
@@ -376,6 +377,7 @@ roslaunch mai_sim joy_trajectory.launch
 |:--:| 
 | *Turtlesim Velocity Control* |
 
+<a name="kobuki_J_L"></a>
 ### Kobuki Trajectory Control Using Joystick
 ~~~
 roslaunch mai_sim joy_kobuki.launch 
