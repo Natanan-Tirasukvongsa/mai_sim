@@ -373,7 +373,7 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
   ~~~
   roslaunch mai_sim joy_trajectory.launch 
   ~~~
- - Joytick
+ - Joystick
   ```diff
   ! Brand : Logitech Gamepad F710
   ! xbox mode
@@ -390,12 +390,12 @@ roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Opti
   ~~~
   roslaunch mai_sim joy_kobuki.launch 
   ~~~
- - Joytick
+ - Joystick
   ```diff
   ! Brand : Logitech Gamepad F710
   ! xbox mode
   ! Mode Button : off
-```
+  ```
 ---
 <a name="technology"></a>
 ## Object Detection and Segmentation 🧠
