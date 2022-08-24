@@ -340,13 +340,18 @@ roslaunch mai_sim kobuki_rs.launch
 
 <a name="M_L"></a>
 ### Multi-Realsense
-~~~
-roslaunch mai_sim test_rs.launch
-~~~
+  - 2 Realsense
+  ~~~
+  roslaunch mai_sim test_rs.launch
+  ~~~
 
 ![rs](https://user-images.githubusercontent.com/78638430/184531874-32c3b962-d3ab-4b69-ad7c-23df0176c201.png)
 |:--:| 
-| *Multi-Realsense* |
+| *2-Realsense* |
+  - 4 Realsense
+  ~~~
+  roslaunch mai_sim 4_rs.launch
+  ~~~
 
 <a name="RTAB_M_L"></a>
 ### RTAB-Map with Multi-Realsense
