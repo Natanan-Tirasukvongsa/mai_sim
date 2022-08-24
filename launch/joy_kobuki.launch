@@ -1,0 +1,14 @@
+<launch>
+    <!-- joy node -->
+    <node respawn="true" pkg="joy" type="joy_node" name="kobuki_joy" >
+        <param name="dev" type="string" value="/dev/input/js0" />
+        <param name="deadzone" value="0.12" />
+    </node>
+
+    <!-- trajectory velocity-->
+    <node pkg="mai_sim" name="joy_traj" type="joy_trajectory4" output="screen"/>
+
+    <!-- launch kobuki -->
+    <include file="$(find kobuki_node)/launch/minimal.launch" />
+    
+</launch>

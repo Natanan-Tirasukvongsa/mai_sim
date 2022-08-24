@@ -32,7 +32,7 @@ float tau_max = 1.5; // maximum time
 float tau_max_angular = 0.0; // trajectory in second
 float tau_max_linear = 0.0; // trajectory in second
 
-float velo_max_angular = 0.2; // trajectory in second (max @ pi rad/s)
+float velo_max_angular = 0.23; // trajectory in second (max @ pi rad/s)
 float velo_max_linear = 0.15; // trajectory in second (max @ 0.7 m/s)
 
 float acc_max_angular = 0.2; // maximum angular acceleration
