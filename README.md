@@ -30,12 +30,12 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
 ## Installation ⚙️ 
 <a name="RTAB_in"></a>
 ### RTAB-Map Installation 
-1. Install RTAB-Map Binaries : https://github.com/introlab/rtabmap_ros
+1. Install RTAB-Map Binaries : [Link](https://github.com/introlab/rtabmap_ros)
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt install ros-$ROS_DISTRO-rtabmap ros-$ROS_DISTRO-rtabmap-ros
 ~~~
-2. Install RTAB-Map standalone libraries : https://github.com/introlab/rtabmap_ros
+2. Install RTAB-Map standalone libraries 
 ~~~
 cd ~
 git clone https://github.com/introlab/rtabmap.git rtabmap
@@ -44,7 +44,7 @@ cmake .. [<---double dots included]
 make -j6
 sudo make install
 ~~~
-3. Install RTAB-Map ros-pkg : https://github.com/introlab/rtabmap_ros
+3. Install RTAB-Map ros-pkg 
 ```diff
 ! If you install rtabmap-ros which is not support multi-camera, you need to remove it  
 ! Also delete rtabmap-ros in catkin_ws/src, build folder and devel folder too 
@@ -68,7 +68,7 @@ catkin_make -DRTABMAP_SYNC_MULTI_RGBD=ON
 ```
 <a name="RS_in"></a>
 ### Realsense (D435i) Installation 
-1. Install Realsense (D435i) : https://github.com/IntelRealSense/realsense-ros
+1. Install Realsense (D435i) : [Link](https://github.com/IntelRealSense/realsense-ros)
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
 sudo apt-get install ros-$ROS_DISTRO-realsense2-description
@@ -85,7 +85,7 @@ catkin_make install
 ~~~
 <a name="IMU_in"></a>
 ### IMU Filter Madwick Installation 
-1. Install Madwick : https://github.com/CCNYRoboticsLab/imu_tools
+1. Install Madwick : [Link](https://github.com/CCNYRoboticsLab/imu_tools)
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-imu-tools
 cd ~/catkin_ws/src/
@@ -96,7 +96,7 @@ catkin_make
 ~~~
 <a name="Mask_in"></a>
 ### Mask R-CNN Installation
-1. Requirement package : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x/blob/master/requirements.txt
+1. Requirement package : [Link](https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x/blob/master/requirements.txt)
 ```diff 
 - numpy
 - scipy
@@ -132,7 +132,7 @@ catkin_make
     ~~~
     python3 --version
     ~~~
-    - Changing version :  https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/
+    - Changing version :  [Link](https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-7-on-ubuntu-18-10/)
     ~~~
     # install desire version
     sudo apt-get install python3.x
@@ -150,7 +150,7 @@ catkin_make
     ~~~
     pip3 show numpy
     ~~~
-    - Changing version : https://github.com/tensorflow/models/issues/9200
+    - Changing version : [Link](https://github.com/tensorflow/models/issues/9200)
     ~~~
     pip3 uninstall numpy
 
@@ -162,7 +162,7 @@ catkin_make
     ~~~
     pip3 show tensorflow
     ~~~
-    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    - Changing version : [Link](https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer)
     ~~~
     pip3 uninstall tensorflow
 
@@ -174,7 +174,7 @@ catkin_make
     ~~~
     pip3 show keras
     ~~~
-    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    - Changing version 
     ~~~
     pip3 uninstall keras
 
@@ -186,7 +186,7 @@ catkin_make
     ~~~
     pip3 show h5py
     ~~~
-    - Changing version : https://stackoverflow.com/questions/67905185/module-keras-engine-has-no-attribute-layer
+    - Changing version 
     ~~~
     pip3 uninstall h5py
 
@@ -198,12 +198,12 @@ catkin_make
     ~~~
     pip3 show pillow
     ~~~
-    - Changing version : https://pillow.readthedocs.io/en/stable/installation.html
+    - Changing version : [Link](https://pillow.readthedocs.io/en/stable/installation.html)
     ~~~
     python3 -m pip install --upgrade pip
     python3 -m pip install --upgrade Pillow
     ~~~
-9. Install Mask R-CNN : https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x
+9. Install Mask R-CNN : [Link](https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x)
 ~~~
 cd catkin_ws/src
 git clone git clone https://github.com/matterport/Mask_RCNN.git
@@ -223,23 +223,23 @@ sudo python3 setup.py install
 ```diff
 ! Please follow the youtube tutorial
 ```
-1. Create Kobuki Workspace : https://www.youtube.com/watch?v=edNsh7bHkhQ
+1. Create Kobuki Workspace : [Link](https://www.youtube.com/watch?v=edNsh7bHkhQ)
 ~~~
 mkdir kobuki_ws
 cd kobuki_ws
 mkdir src
 catkin_make
 ~~~
-2. Install Kobuki : https://github.com/yujinrobot/kobuki
+2. Install Kobuki : [Link](https://github.com/yujinrobot/kobuki)
 ~~~
 cd src
 git clone https://github.com/yujinrobot/kobuki
 ~~~
-3. Install Yujin Open Control System (yocs) : https://github.com/yujinrobot/yujin_ocs
+3. Install Yujin Open Control System (yocs) : [Link](https://github.com/yujinrobot/yujin_ocs)
 ~~~
 git clone https://github.com/yujinrobot/yujin_ocs
 ~~~
-4. For Noetic Version : https://github.com/yujinrobot/kobuki/issues/427#issuecomment-779439686
+4. For Noetic Version : [Link](https://github.com/yujinrobot/kobuki/issues/427#issuecomment-779439686)
 ```diff
 - Delete everything except 'yocs_cmd_vel_mux', 'yocs_controllers', and 'yocs_velocity_smoother' 
 ```
@@ -258,15 +258,14 @@ source devel/setup.bash
 
 <a name="turtle_in"></a>
 ### Turtlesim Installation
-1. Install Turtlesim : http://wiki.ros.org/turtlesim
-```
+1. Install Turtlesim : [Link](http://wiki.ros.org/turtlesim)
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-turtlesim
 ~~~
 
 <a name="joy_in"></a>
 ### Joystick Installation
-1. Install Joystick : http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
+1. Install Joystick : [Link](http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick)
 ~~~
 sudo apt-get install ros-$ROS_DISTRO-joy
 ~~~
@@ -282,7 +281,7 @@ sudo chmod a+rw /dev/input/jsX
 
 <a name="mai_in"></a>
 ### mai_sim Installation 
-1. Install mai_sim : https://github.com/Natanan-Tirasukvongsa/mai_sim.git
+1. Install mai_sim : [Link](https://github.com/Natanan-Tirasukvongsa/mai_sim.git)
 ~~~
 cd catkin_ws/src
 git clone https://github.com/Natanan-Tirasukvongsa/mai_sim.git
@@ -296,7 +295,7 @@ catkin_make
 <a name="RTAB_L"></a>
 ### RTAB-Map with 1 Realsense
 
-- Launch Realsense and Madgwick : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
+- Launch Realsense and Madgwick : [Link](http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping)
 ~~~
 roslaunch realsense2_camera rs_camera.launch \
 align_depth:=true \
@@ -312,7 +311,7 @@ _world_frame:="enu" \
 /imu/data:=/rtabmap/imu
 ~~~
 
-- RTAB Mapping Mode : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
+- RTAB Mapping Mode 
 ~~~~
 # --delete_db_on_start is used to start mapping from a clean database
 
@@ -333,7 +332,7 @@ imu_topic:=/rtabmap/imu
 | *Mapping with RTAB-Map* |
 
 
-- RTAB Localization Mode : http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping
+- RTAB Localization Mode 
 ~~~
 #  resetting the odometry
 rosservice call /rtabmap/reset_odom
