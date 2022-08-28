@@ -508,6 +508,7 @@ roslaunch mai_sim joy_kobuki.launch
   - https://colab.research.google.com/github/Hvass-Labs/TensorFlow-Tutorials/blob/master/10_Fine-Tuning.ipynb#scrollTo=1BdM6cmNq_yc
   - https://github.com/Hvass-Labs/TensorFlow-Tutorials
   - https://www.youtube.com/watch?v=H8sXcAXrGR4
+  - https://stackoverflow.com/questions/41668813/how-to-add-and-remove-new-layers-in-keras-after-loading-weights?fbclid=IwAR3Crf0suf3AKG5BvdQusUk3gThKkhRbCriX3WgvRR8QirY7nsCNxyGVnvs
 
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
