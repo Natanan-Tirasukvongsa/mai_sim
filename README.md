@@ -502,5 +502,12 @@ roslaunch mai_sim joy_kobuki.launch
   - https://docs.github.com/en/enterprise-server@3.3/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   - https://github.com/fefong/markdown_readme
 
+- Fine Tuning : 
+  - https://www.tensorflow.org/guide/keras/functional
+  - https://www.youtube.com/watch?v=3ou0KYtDlOI
+  - https://colab.research.google.com/github/Hvass-Labs/TensorFlow-Tutorials/blob/master/10_Fine-Tuning.ipynb#scrollTo=1BdM6cmNq_yc
+  - https://github.com/Hvass-Labs/TensorFlow-Tutorials
+  - https://www.youtube.com/watch?v=H8sXcAXrGR4
+
 - Quote : 
 > You cannot change the past but you can still fuck up your future.
