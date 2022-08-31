@@ -32,8 +32,8 @@
   
     <!-- Odometry -->
     <node pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
-      <remap from="rgbd_image0"       to="/camera1/rgbd_image"/>
-      <remap from="rgbd_image1"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image0"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image1"       to="/camera3/rgbd_image"/>
       <remap from="imu"             to="/camera2/imu"/>
       <param name="wait_imu_to_init"            type="bool"   value="true"/>
 	  
@@ -66,8 +66,8 @@
 	  <param name="map_always_update" type="bool"   value="false"/>        <!-- refresh grid map even if we are not moving-->
 	  <param name="map_empty_ray_tracing" type="bool" value="false"/> <!-- don't fill empty space between the generated scans-->
 	
-      <remap from="rgbd_image0"       to="/camera1/rgbd_image"/>
-      <remap from="rgbd_image1"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image0"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image1"       to="/camera3/rgbd_image"/>
 
       <param name="Grid/Sensor"     type="string" value="false"/>
       <param name="Vis/EstimationType" type="string" value="0"/> <!-- should be 0 for multi-cameras -->
@@ -84,8 +84,8 @@
       <param name="rgbd_cameras"       type="int"    value="2"/>
       <param name="wait_for_transform"  type="bool"   value="$(arg wait_for_transform)"/>
     
-      <remap from="rgbd_image0"       to="/camera1/rgbd_image"/>
-      <remap from="rgbd_image1"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image0"       to="/camera2/rgbd_image"/>
+      <remap from="rgbd_image1"       to="/camera3/rgbd_image"/>
     </node>
   
   </group>
