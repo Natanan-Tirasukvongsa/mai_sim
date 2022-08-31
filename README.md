@@ -211,7 +211,7 @@ catkin_make
 9. Install Mask R-CNN : [Link](https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x)
 ~~~
 cd catkin_ws/src
-git clone https://github.com/matterport/Mask_RCNN.git
+git clone https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x.git
 cd Mask_RCNN/
 pip3 install -r requirements.txt
 python3 setup.py install
