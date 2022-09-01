@@ -208,7 +208,11 @@ catkin_make
     python3 -m pip install --upgrade pip
     python3 -m pip install --upgrade Pillow
     ~~~
-9. Install Mask R-CNN : [Link](https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x)
+9. Install pycocotools
+~~~
+pip3 install pycocotools
+~~~
+10. Install Mask R-CNN : [Link](https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x)
 ~~~
 cd catkin_ws/src
 git clone https://github.com/BupyeongHealer/Mask_RCNN_tf_2.x.git
@@ -395,6 +399,9 @@ roslaunch mai_sim 4_rs.launch
 <a name="RTAB_M_L"></a>
 ### RTAB-Map with Multi-Realsense
 ~~~
+roslaunch mai_sim test_rs.launch
+
+# open another terminal 
 roslaunch mai_sim rtabmap_ros8.launch rtabmap_args:="--delete_db_on_start --Optimizer/GravitySigma 0.3"
 ~~~
 
