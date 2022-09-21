@@ -1,13 +1,15 @@
 <launch>
 
-  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mai_sim)/urdf/test_rs.urdf.xacro' use_nominal_extrinsics:=true" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
     <param name="publish_frequency" type="double" value="5.0"/>
   </node>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="true"/>
-  </node> -->
+  </node>
 
-  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mai_sim)/rviz/model.rviz"/> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mai_sim)/rviz/model.rviz"/>
 
   <arg name="fps"        default="15" />
   <arg name="width"      default="1280" />
@@ -42,8 +44,8 @@
         <arg name="enable_infra2"       value="$(arg en_in2)"/>
         
     </include>
-    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera1_link"
-    args="0.0 -0.07 1 0.0 0.0 -1.57079632679 base_link camera1_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera1_link"
+    args="0.0 -0.07 1 0.0 0.0 -1.57079632679 base_link camera1_link 100" />
 
     <!--front-->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
@@ -71,8 +73,8 @@
         <arg name="enable_infra1"       value="$(arg en_in1)"/>
         <arg name="enable_infra2"       value="$(arg en_in2)"/>
     </include>
-    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera2_link"
-    args="-0.07 0.0 1 0.0 0.0 3.1415926535897931 base_link camera2_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera2_link"
+    args="-0.07 0.0 1 0.0 0.0 3.1415926535897931 base_link camera2_link 100" />
 
     <!--right-->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
@@ -100,8 +102,8 @@
         <arg name="enable_infra1"       value="$(arg en_in1)"/>
         <arg name="enable_infra2"       value="$(arg en_in2)"/>
     </include>
-    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera3_link"
-    args="0.0 0.07 1 0.0 0.0 1.57079632679 base_link camera3_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera3_link"
+    args="0.0 0.07 1 0.0 0.0 1.57079632679 base_link camera3_link 100" />
 
     <!--back-->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
@@ -126,8 +128,8 @@
         <arg name="enable_infra1"       value="$(arg en_in1)"/>
         <arg name="enable_infra2"       value="$(arg en_in2)"/>
     </include>
-    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera4_link"
-    args="0.07 0.0 1 0.0 0.0 0 base_link camera4_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera4_link"
+    args="0.07 0.0 1 0.0 0.0 0 base_link camera4_link 100" />
 
     <!-- sync rgb/depth images per camera -->
    <group ns="camera1">

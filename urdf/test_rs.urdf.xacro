@@ -85,9 +85,13 @@
     <origin xyz="0.05475 0.0 0" rpy="0.0 0.0 0"/>
   </xacro:sensor_d435i>
 
-  <!-- <xacro:sensor_d435i parent="base_link" name="camera3" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
-    <origin xyz="0 -0.5 0.7" rpy="0.0 0.0 0.0"/>
-  </xacro:sensor_d435i> -->
+  <xacro:sensor_d435i parent="base_link" name="camera3" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
+    <origin xyz="0 -0.05475 0" rpy="0.0 0.0 0.0"/>
+  </xacro:sensor_d435i>
+
+  <xacro:sensor_d435i parent="base_link" name="camera4" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
+    <origin xyz="-0.05475 0 0" rpy="0.0 0.0 0.0"/>
+  </xacro:sensor_d435i>
 
 
   
