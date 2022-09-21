@@ -130,6 +130,7 @@ catkin_make
 @@ h5py           2.10.0    @@
 @@ imgaug         0.4.0     @@
 @@ ipython        7.34.0    @@
+@@ pycocotools    2.0.4     @@
 @@ Ubuntu         20.04 LTS @@
 ```
 3. Change Python Version 
