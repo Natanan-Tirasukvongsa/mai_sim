@@ -78,20 +78,20 @@
   <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/>
 
   <xacro:sensor_d435i parent="base_link" name="camera1" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
-    <origin xyz="0 -0.05475 0" rpy="0.0 0.0 -1.57079633"/>
+    <origin xyz="0 -0.08 0" rpy="0.0 0.0 -1.57079632679 "/>
   </xacro:sensor_d435i>
 
   <xacro:sensor_d435i parent="base_link" name="camera2" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
-    <origin xyz="0.05475 0.0 0" rpy="0.0 0.0 0"/>
+    <origin xyz="0.08 0.0 0" rpy="0.0 0.0 0"/>
   </xacro:sensor_d435i>
 
-  <!-- <xacro:sensor_d435i parent="base_link" name="camera3" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
-    <origin xyz="0 -0.05475 0" rpy="0.0 0.0 0.0"/>
+  <xacro:sensor_d435i parent="base_link" name="camera3" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
+    <origin xyz="0 0.08 0" rpy="0.0 0.0 1.57079632679"/>
   </xacro:sensor_d435i>
 
   <xacro:sensor_d435i parent="base_link" name="camera4" use_nominal_extrinsics="$(arg use_nominal_extrinsics)"> 
-    <origin xyz="-0.05475 0 0" rpy="0.0 0.0 0.0"/>
-  </xacro:sensor_d435i> -->
+    <origin xyz="-0.08 0 0" rpy="0.0 0.0 3.14159265359"/>
+  </xacro:sensor_d435i>
 
 
   
