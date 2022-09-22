@@ -465,7 +465,11 @@ roslaunch mai_sim joy_kobuki.launch
 ## Object Detection and Segmentation 🧠
 <a name="Mask"></a>
 ### Mask R-CNN
-
+#### Demo Mask-RCNN
+~~~
+cd catkin_ws/src/Mask_RCNN_tf_2.x/samples
+code demo.ipynb 
+~~~
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
 :--:| 
 | *Human Segmentation* |
