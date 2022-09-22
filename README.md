@@ -397,6 +397,10 @@ roslaunch mai_sim test_rs.launch
 roslaunch mai_sim 4_rs.launch
 ~~~
 
+![4_rs](https://user-images.githubusercontent.com/78638430/191685994-1529579c-3330-486f-8e00-934f636068ea.png)
+|:--:|
+| *4-Realsense* |
+
 <a name="RTAB_M_L"></a>
 ### RTAB-Map with Multi-Realsense
 ~~~
