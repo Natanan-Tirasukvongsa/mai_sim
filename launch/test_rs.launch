@@ -1,5 +1,5 @@
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mai_sim)/urdf/test_rs.urdf.xacro' use_nominal_extrinsics:=true" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mai_sim)/urdf/2_rs.urdf.xacro' use_nominal_extrinsics:=true" />
     <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
     <arg name="use_tf_static" default="true"/> 
@@ -10,9 +10,9 @@
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen"/>
 
 
-    <!-- <arg name="gui" default="True" />
+    <arg name="gui" default="True" />
     <param name="use_gui" value="$(arg gui)" />
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_description)/rviz/urdf.rviz" required="true" />
 
     <!-- Cameras -->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
