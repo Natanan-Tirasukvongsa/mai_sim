@@ -28,6 +28,10 @@ mai_sim package is used for 3D SLAM in dynamic environment using deep learning. 
   * [Kobuki Trajectory Control Using Joystick](#kobuki_J_L)  
 * [Object Detection and Segmentation](#technology)
   * [Mask R-CNN](#Mask) 
+    * [Demo Mask-RCNN](#DMR)
+    * [Segmentation Only Person](#SOP)
+    * [Average Computation Time for Sub - Processes](#AVE_M)
+    * [All Example Code](#EX_M)
 * [My Learning](#learning)
 
 ---
@@ -465,7 +469,9 @@ roslaunch mai_sim joy_kobuki.launch
 ## Object Detection and Segmentation 🧠
 <a name="Mask"></a>
 ### Mask R-CNN
+<a name="#DMR"></a>
 #### Demo Mask-RCNN
+You can run all the code too see result
 ~~~
 cd catkin_ws/src/Mask_RCNN_tf_2.x/samples
 code demo.ipynb 
@@ -475,16 +481,19 @@ code demo.ipynb
 |:--:| 
 | *Mask R-CNN Output* |
 
+<a name="#SOP"></a>
 #### Segmentation Only Person
 You can add this [code](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/segment_only_human_car.py) below last command in demo.ipynb 
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
 |:--:| 
 | *Human Segmentation* |
 
+<a name="AVE_M"></a>
 #### Average Computation Time for Sub - Processes
 You can add this [code](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/ave_time.py) below Segmentation Only Person function
 
-#### All Eaxample Code
+<a name="EX_M"></a>
+#### All Example Code
 You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/demo.ipynb)
 
 ---
