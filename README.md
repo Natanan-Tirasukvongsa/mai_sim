@@ -308,7 +308,7 @@ catkin_make
 ## Launch Files 📁
 <a name="RTAB_L"></a>
 ### RTAB-Map with 1 Realsense
-<a name="#RTAB_L_L"></a>
+<a name="RTAB_L_L"></a>
 #### Launching
 - Launch Realsense : [Link](http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping)
 ~~~
@@ -328,7 +328,7 @@ _world_frame:="enu" \
 /imu/data:=/rtabmap/imu
 ~~~
 
-<a name="#RTAB_L_M"></a>
+<a name="RTAB_L_M"></a>
 #### RTAB-Map Mapping Mode 
 ~~~~
 # --delete_db_on_start is used to start mapping from a clean database
@@ -349,7 +349,7 @@ imu_topic:=/rtabmap/imu
 |:--:| 
 | *Mapping with RTAB-Map* |
 
-<a name="#RTAB_L_Lo"></a>
+<a name="RTAB_L_Lo"></a>
 #### RTAB-Map Localization Mode 
 ~~~
 #  resetting the odometry
