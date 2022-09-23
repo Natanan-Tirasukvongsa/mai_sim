@@ -470,9 +470,22 @@ roslaunch mai_sim joy_kobuki.launch
 cd catkin_ws/src/Mask_RCNN_tf_2.x/samples
 code demo.ipynb 
 ~~~
+
+![mrcnn_output](https://user-images.githubusercontent.com/78638430/191957189-3c44845e-3e73-4fd5-aba1-7e3a0b8de96a.png)
+|:--:| 
+| *Mask R-CNN Output* |
+
+#### Segmentation Only Person
+You can add this [code](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/segment_only_human_car.py) below last command in demo.ipynb 
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
-:--:| 
+|:--:| 
 | *Human Segmentation* |
+
+#### Average Computation Time for Sub - Processes
+You can add this [code](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/ave_time.py) below Segmentation Only Person function
+
+#### All Eaxample Code
+You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/demo.ipynb)
 
 ---
 <a name="learning"></a>
