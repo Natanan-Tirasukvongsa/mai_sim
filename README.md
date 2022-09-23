@@ -469,7 +469,7 @@ roslaunch mai_sim joy_kobuki.launch
 ## Object Detection and Segmentation 🧠
 <a name="Mask"></a>
 ### Mask R-CNN
-<a name="#DMR"></a>
+<a name="DMR"></a>
 #### Demo Mask-RCNN
 You can run all the code too see result
 ~~~
@@ -481,7 +481,7 @@ code demo.ipynb
 |:--:| 
 | *Mask R-CNN Output* |
 
-<a name="#SOP"></a>
+<a name="SOP"></a>
 #### Segmentation Only Person
 You can add this [code](https://github.com/Natanan-Tirasukvongsa/mai_sim/blob/main/src/segment_only_human_car.py) below last command in demo.ipynb 
 ![human_seg](https://user-images.githubusercontent.com/78638430/184534020-36ac0a5b-3160-476e-a702-6f93bbab0341.png)
