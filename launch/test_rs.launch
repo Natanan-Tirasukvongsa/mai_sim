@@ -17,7 +17,7 @@
     <!-- Cameras -->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" value="camera1" />
-        <arg name="serial_no" value="047422070014" />
+        <arg name="serial_no" value="048122071755" />
         <arg name="align_depth" value="true" />
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
@@ -26,34 +26,11 @@
 
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
         <arg name="camera" value="camera2" />
-        <arg name="serial_no" value="048322071579" />
+        <arg name="serial_no" value="048122072409" />
         <arg name="align_depth" value="true" />
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
     </include>
 
-    <!-- sync rgb/depth images per camera -->
-   <group ns="camera1">
-    <node pkg="nodelet" type="nodelet" name="nodelet_manager1" args="manager"/>
-    <node pkg="nodelet" type="nodelet" name="rgbd_sync1" args="load rtabmap_ros/rgbd_sync nodelet_manager1">
-      <remap from="rgb/image"       to="color/image_raw"/>
-      <remap from="depth/image"     to="aligned_depth_to_color/image_raw"/>
-      <remap from="rgb/camera_info" to="color/camera_info"/>
-      <remap from="imu" to="/imu"/>
-      <param name="approx"          value="false"/>
-      <param name="wait_imu_to_init"          value="true"/>
-    </node>
-   </group>
-   <group ns="camera2">
-    <node pkg="nodelet" type="nodelet" name="nodelet_manager2" args="manager"/>
-    <node pkg="nodelet" type="nodelet" name="rgbd_sync2" args="load rtabmap_ros/rgbd_sync nodelet_manager2">
-      <remap from="rgb/image"       to="color/image_raw"/>
-      <remap from="depth/image"     to="aligned_depth_to_color/image_raw"/>
-      <remap from="rgb/camera_info" to="color/camera_info"/>
-      <remap from="imu" to="/imu"/>
-      <param name="approx"          value="false"/>
-      <param name="wait_imu_to_init"          value="true"/>
-    </node>
-   </group>
 </launch>

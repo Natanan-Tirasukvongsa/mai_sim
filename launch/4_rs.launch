@@ -14,8 +14,8 @@
   <arg name="fps"        default="15" />
   <arg name="width"      default="640" />
   <arg name="height"     default="480" />
-  <arg name="en_in1"     default="false" />
-  <arg name="en_in2"     default="false" />
+  <arg name="en_in1"     default="true" />
+  <arg name="en_in2"     default="true" />
   <!-- Cameras -->
   <!-- left-->
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
@@ -25,8 +25,8 @@
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
-        <arg name="reconnect_timeout" value="10"/>
-        <arg name="json_file_path"      value="/home/natanan/fps15.json"/>
+        <!-- <arg name="reconnect_timeout" value="10"/>
+        <arg name="json_file_path"      value="/home/natanan/fps15.json"/> -->
 
         <arg name="depth_fps"           value="$(arg fps)"/>
         <arg name="color_fps"           value="$(arg fps)"/>
@@ -55,8 +55,8 @@
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
-        <arg name="reconnect_timeout" value="10"/>
-        <arg name="json_file_path"      value="/home/natanan/fps15.json"/>
+        <!-- <arg name="reconnect_timeout" value="10"/>
+        <arg name="json_file_path"      value="/home/natanan/fps15.json"/> -->
 
         <arg name="depth_fps"           value="30"/>
         <arg name="color_fps"           value="30"/>
@@ -84,8 +84,8 @@
         <arg name="unite_imu_method" value="linear_interpolation" />
         <arg name="enable_gyro" value="true" />
         <arg name="enable_accel" value="true" />
-        <arg name="reconnect_timeout" value="10"/>
-        <arg name="json_file_path"      value="/home/natanan/fps15.json"/>
+        <!-- <arg name="reconnect_timeout" value="10"/>
+        <arg name="json_file_path"      value="/home/natanan/fps15.json"/> -->
 
         <arg name="depth_fps"           value="15"/>
         <arg name="color_fps"           value="15"/>
