@@ -511,6 +511,9 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 - RGB-D SLAM Dataset : 
   - https://vision.in.tum.de/data/datasets/rgbd-dataset/download?fbclid=IwAR2UmqP0Cqyt3t_zzH-llFTA7--ZPEv5y4wq1kZ6i3BqDxu8GXX-KT0zFaI
 
+- RTAB-Map Program : 
+  - https://github.com/introlab/rtabmap/wiki/Kinect-mapping#yourfirstmap
+  
 - RTAB-Map with Multi - Camera :
   - http://official-rtab-map-forum.206.s1.nabble.com/RTABMAP-to-be-integrated-for-two-ZED2i-cameras-td8976.html 
   - https://www.heypasteit.com/clip/0ISEH9
