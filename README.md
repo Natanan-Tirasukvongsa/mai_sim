@@ -521,6 +521,7 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 
 - RTAB-Map Trajectory : 
   - http://official-rtab-map-forum.206.s1.nabble.com/DataBaseViewer-export-trajectory-td9123.html#a9161
+  - http://official-rtab-map-forum.206.s1.nabble.com/Visualization-of-laserscan-and-trajectory-td2488.html#a2495
 
 - RTAB-Map Error : 
   - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
