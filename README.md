@@ -519,8 +519,12 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
   - https://www.heypasteit.com/clip/0ISEH9
   - https://github.com/introlab/rtabmap_ros/blob/master/launch/demo/demo_two_kinects.launch
 
+- RTAB-Map Trajectory : 
+  - http://official-rtab-map-forum.206.s1.nabble.com/DataBaseViewer-export-trajectory-td9123.html#a9161
+
 - RTAB-Map Error : 
   - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
+  - https://github.com/introlab/rtabmap_ros/issues/228
 
 - RTAB-Map Calibration : 
   - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
