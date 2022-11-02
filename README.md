@@ -513,6 +513,7 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 
 - RTAB-Map Program : 
   - https://github.com/introlab/rtabmap/wiki/Kinect-mapping#yourfirstmap
+  - http://essay.utwente.nl/88715/1/Lorente_Rogel_MA_EE.pdf
   
 - RTAB-Map with Multi - Camera :
   - http://official-rtab-map-forum.206.s1.nabble.com/RTABMAP-to-be-integrated-for-two-ZED2i-cameras-td8976.html 
