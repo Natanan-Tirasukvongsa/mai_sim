@@ -533,6 +533,7 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 
 - RTAB-Map Calibration : 
   - http://official-rtab-map-forum.206.s1.nabble.com/Calibration-tool-td2738.html#a2800   
+  - https://github.com/introlab/rtabmap/wiki/Stereo-mapping#process-a-directory-of-stereo-images-in-ros
 
 - Control using Joystick : 
   - http://wiki.ros.org/joy/Tutorials
