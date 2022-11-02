@@ -524,6 +524,7 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
   - http://official-rtab-map-forum.206.s1.nabble.com/Visualization-of-laserscan-and-trajectory-td2488.html#a2495
   - http://official-rtab-map-forum.206.s1.nabble.com/rtabmap-pose-format-td4653.html
   - http://official-rtab-map-forum.206.s1.nabble.com/Export-pose-for-every-frame-td750.html
+  - https://github.com/introlab/rtabmap/issues/213
 
 - RTAB-Map Error : 
   - https://answers.ros.org/question/232015/problem-with-rtabmap_ros-and-nonfree-opencv/ 
