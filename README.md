@@ -511,6 +511,9 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 - RGB-D SLAM Dataset : 
   - https://vision.in.tum.de/data/datasets/rgbd-dataset/download?fbclid=IwAR2UmqP0Cqyt3t_zzH-llFTA7--ZPEv5y4wq1kZ6i3BqDxu8GXX-KT0zFaI
 
+- RTAB-Map Locolization:
+  - http://official-rtab-map-forum.206.s1.nabble.com/localization-pose-td6083.html#a6096
+
 - RTAB-Map Program : 
   - https://github.com/introlab/rtabmap/wiki/Kinect-mapping#yourfirstmap
   - http://essay.utwente.nl/88715/1/Lorente_Rogel_MA_EE.pdf
