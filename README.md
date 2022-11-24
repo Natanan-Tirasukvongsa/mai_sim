@@ -513,6 +513,7 @@ You can see all code [here](https://github.com/Natanan-Tirasukvongsa/mai_sim/blo
 
 - RTAB-Map Locolization:
   - http://official-rtab-map-forum.206.s1.nabble.com/localization-pose-td6083.html#a6096
+  - http://official-rtab-map-forum.206.s1.nabble.com/How-does-localization-mode-work-td5288.html#a5301
 
 - RTAB-Map Program : 
   - https://github.com/introlab/rtabmap/wiki/Kinect-mapping#yourfirstmap
